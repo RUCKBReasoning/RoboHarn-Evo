@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "instruction_set_id": "contract_clarified_v1",
+  "source": "researcher_authored",
+  "base_instruction_set": "rmbench_original",
+  "created_date": "2026-07-28",
+  "scope": "Clarify observable task contracts without exposing expert trajectories.",
+  "design_rules": [
+    "State what action changes the scene and what action only checks task state.",
+    "State the condition that requires progress to a new world state.",
+    "Do not include environment seeds, fixed world coordinates, task-specific arm assignments, or expert action sequences.",
+    "Apply the same instruction text to every evaluated method in this condition.",
+    "Report this condition separately from vanilla RMBench."
+  ],
+  "tasks": {
+    "blocks_ranking_try": {
+      "change_class": "task_contract_clarification",
+      "base_file": "description/task_instruction/blocks_ranking_try.json",
+      "base_file_sha256": "80295dcf3f5b147773c30b20d1aa5a4f99b5d7c18233c08b3b60cb84174e22cd",
+      "rationale": "The original wording does not state that the robot must rearrange the cubes, that the button only tests the current ordering, or that one failed test must be followed by a different ordering."
+    }
+  }
+}

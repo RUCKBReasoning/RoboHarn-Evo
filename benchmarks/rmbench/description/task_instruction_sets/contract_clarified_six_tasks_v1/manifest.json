@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "instruction_set_id": "contract_clarified_six_tasks_v1",
+  "source": "researcher_authored",
+  "base_instruction_set": "rmbench_original",
+  "created_date": "2026-09-03",
+  "scope": "Clarify the ordered task contract and observable completion conditions for the six formal RMBench tasks without exposing seeds, world coordinates, robot-arm assignments, low-level motion commands, or hidden task answers.",
+  "design_rules": [
+    "Preserve the task objective, object relationships, and stage order defined by the original RMBench instruction and implementation.",
+    "State what must be identified at the start, which identities must remain continuous, and the observable final state.",
+    "Do not include environment seeds, fixed world coordinates, task-specific arm assignments, low-level motion commands, or hidden task answers.",
+    "Apply the same instruction text to every evaluated method in this instruction condition.",
+    "Report this clarified-instruction condition separately from vanilla RMBench."
+  ],
+  "tasks": {
+    "rearrange_blocks": {
+      "change_class": "task_contract_clarification",
+      "base_file": "description/task_instruction/rearrange_blocks.json",
+      "base_file_sha256": "41ca10f14885e4a6e2b2a3067ab104cee4af8ac3c56727ebe27baab2a3f6b878",
+      "rationale": "Make the initial block identities, empty mat, required stage order, and final placement explicit."
+    },
+    "swap_blocks": {
+      "change_class": "task_contract_clarification",
+      "base_file": "description/task_instruction/swap_blocks.json",
+      "base_file_sha256": "dca29a86565cc071d6e6bf42ec9038dc40086ca2550b3948355fed2dfd44da63",
+      "rationale": "Make the initial block-to-tray identities, temporary-buffer role, capacity constraint, and button timing explicit."
+    },
+    "press_button": {
+      "change_class": "task_contract_clarification",
+      "base_file": "description/task_instruction/press_button.json",
+      "base_file_sha256": "f940969e9489c6f05a032007a17ffe66a729ae171d8b92eac411635241cb15b6",
+      "rationale": "Make the number-to-button mapping, distinct press counting, stage order, and confirmation condition explicit."
+    },
+    "place_block_mat": {
+      "change_class": "task_contract_clarification",
+      "base_file": "description/task_instruction/place_block_mat.json",
+      "base_file_sha256": "5a230e15d47c2aed48bf9546f7d42b1f8c9365f2430f57cde245646d553fe5bb",
+      "rationale": "Make left-to-right processing, the per-block visit to the green mat, original-mat identity, and final state explicit."
+    },
+    "put_back_block": {
+      "change_class": "task_contract_clarification",
+      "base_file": "description/task_instruction/put_back_block.json",
+      "base_file_sha256": "d09042a490c0e70d8bee79f6d086ddc2b500d7d9aff3a81f016e93bc9ec3b289",
+      "rationale": "Make the original mat identity, center-button-return stage order, and final release condition explicit."
+    },
+    "cover_blocks": {
+      "change_class": "task_contract_clarification",
+      "base_file": "description/task_instruction/cover_blocks.json",
+      "base_file_sha256": "c0c5664211e4bfcaa9e48611043815a2ab61b6bb1b648efef045ae65e91f41ec",
+      "rationale": "Make the two ordered phases, spatial-to-color identity tracking, lid return locations, and final uncovered state explicit."
+    }
+  }
+}

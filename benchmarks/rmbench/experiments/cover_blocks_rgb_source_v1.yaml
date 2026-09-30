@@ -1,0 +1,25 @@
+schema: roboharn_evo/rmbench/cover_blocks_rgb_source/v1
+task: cover_blocks
+task_config: demo_clean
+source_protocol: benchmarks/rmbench/experiments/hpk_formal_q1_v1.yaml
+source_episode_indices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+source_seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+instruction_type: unseen
+source_data_root: /path/to/RMBench/data/data/cover_blocks/demo_clean
+output_root: eval_result/hpk/q4/cover_blocks_source
+model:
+  model: gpt-5.5
+  reasoning_effort: xhigh
+  max_images: 64
+  automatic_retries: 0
+integration:
+  # 与 source 0–9、正式 Q1 target 10–19 分开。
+  seeds: [20, 21]
+  methods: ["off", "full"]
+  action_limit: 300
+  control_turn_limit: 128
+  episode_timeout_seconds: 7200
+  episode_retries: 0
+  knowledge_updates_enabled: false
+  retrieval_rgb_enabled: true
+  perception_condition: no_oracle

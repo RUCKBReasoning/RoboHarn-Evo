@@ -1,0 +1,13 @@
+{
+  "instruction_set_id": "contract_clarified_six_tasks_v1",
+  "task_name": "swap_blocks",
+  "full_description": "Swap two blocks between their original trays using the third empty tray as temporary space, then press the button.",
+  "schema": "",
+  "preference": "Clarify initial identity tracking, tray capacity, temporary placement, and completion order without prescribing an arm, coordinate, grasp, or motion path.",
+  "seen": [
+    "At the start, identify and remember each of the two blocks and the tray in which each block starts, as well as the third empty tray. Swap the blocks using the initially empty tray as temporary space. Move only one block at a time, and never leave more than one block in a tray. The final arrangement must place each block in the other block's original tray, with both blocks released and stable. Only after the swap is complete, press and release the button exactly once. The task is complete only when the swapped arrangement is stable and the final button press has been registered."
+  ],
+  "unseen": [
+    "At the start, identify and remember each of the two blocks and the tray in which each block starts, as well as the third empty tray. Swap the blocks using the initially empty tray as temporary space. Move only one block at a time, and never leave more than one block in a tray. The final arrangement must place each block in the other block's original tray, with both blocks released and stable. Only after the swap is complete, press and release the button exactly once. The task is complete only when the swapped arrangement is stable and the final button press has been registered."
+  ]
+}

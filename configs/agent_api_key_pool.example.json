@@ -1,0 +1,14 @@
+{
+  "keys": [
+    {
+      "name": "primary",
+      "api_key_file": "/path/to/credentials/primary.json",
+      "max_concurrent_requests": 3
+    },
+    {
+      "name": "secondary",
+      "api_key_file": "/path/to/credentials/secondary.json",
+      "max_concurrent_requests": 3
+    }
+  ]
+}

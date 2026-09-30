@@ -1,0 +1,79 @@
+schema: roboharn_evo/rmbench/hpk_formal_q1_protocol/v1
+protocol_id: rmbench_hpk_v31_q1_clarified_six_tasks_v1
+task_config: demo_clean
+instruction_set: contract_clarified_six_tasks_v1
+instruction_type: unseen
+source:
+  kind: benchmark_gt_demonstration
+  trajectory_count_per_task: 10
+  episode_indices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+evaluation:
+  episode_indices: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  paired_seed_count_per_task: 10
+  exact_seed_fail_closed: true
+  perception_condition: no_oracle
+  action_limit: 150
+  control_turn_limit: 64
+  no_progress_control_turn_limit: 10
+  semantic_round_limit_per_subtask: 10
+  retry_budget: 0
+tasks:
+  - name: rearrange_blocks
+    role: task_dominant
+    source_seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    evaluation_seeds: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  - name: swap_blocks
+    role: task_dominant
+    source_seeds: [0, 1, 2, 3, 4, 6, 8, 14, 16, 18]
+    evaluation_seeds: [19, 20, 23, 26, 28, 29, 30, 32, 33, 35]
+  - name: press_button
+    role: action_dominant
+    source_seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    evaluation_seeds: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  - name: place_block_mat
+    role: action_dominant
+    source_seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    evaluation_seeds: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  - name: put_back_block
+    role: coupled
+    source_seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    evaluation_seeds: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  - name: cover_blocks
+    role: coupled
+    source_seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    evaluation_seeds: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+methods:
+  - id: "off"
+    paper_name: HPK-Off
+    flat_reflection: false
+    task_knowledge: false
+    action_knowledge: false
+  - id: flat
+    paper_name: Flat Free-Form Reflection
+    flat_reflection: true
+    task_knowledge: false
+    action_knowledge: false
+  - id: task
+    paper_name: Task-HPK
+    flat_reflection: false
+    task_knowledge: true
+    action_knowledge: false
+  - id: action
+    paper_name: Action-HPK
+    flat_reflection: false
+    task_knowledge: false
+    action_knowledge: true
+  - id: full
+    paper_name: Full HPK (Frozen)
+    flat_reflection: false
+    task_knowledge: true
+    action_knowledge: true
+store_policy:
+  evaluation_read_only: true
+  online_reflection: false
+  online_update: false
+split_policy:
+  source_and_evaluation_seed_disjoint: true
+  source_and_evaluation_episode_index_disjoint: true
+  simulator_instances_are_reset_scoped: true
+  same_source_pool_for_all_memory_methods: true

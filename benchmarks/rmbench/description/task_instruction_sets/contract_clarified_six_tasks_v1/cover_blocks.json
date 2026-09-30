@@ -1,0 +1,13 @@
+{
+  "instruction_set_id": "contract_clarified_six_tasks_v1",
+  "task_name": "cover_blocks",
+  "full_description": "Cover all three blocks from left to right, then uncover them in red-green-blue order and return every lid to its original starting position.",
+  "schema": "",
+  "preference": "Clarify the two ordered phases, spatial and color identity tracking, lid return locations, and the observable final state without prescribing an arm, coordinate, grasp, or motion path.",
+  "seen": [
+    "At the start, identify the spatially left, middle, and right blocks, their colors, and the original starting position of each corresponding lid. Complete the covering phase first: cover the left block, then the middle block, then the right block, using the corresponding lid for each and leaving each block fully covered before continuing. Only after all three blocks have been covered in that order, begin the uncovering phase. Uncover the red block first, then the green block, then the blue block. After removing each lid, place that same lid back at its own original starting position. The task is complete only when all three blocks are uncovered and all three lids are released and stable at their respective original starting positions."
+  ],
+  "unseen": [
+    "At the start, identify the spatially left, middle, and right blocks, their colors, and the original starting position of each corresponding lid. Complete the covering phase first: cover the left block, then the middle block, then the right block, using the corresponding lid for each and leaving each block fully covered before continuing. Only after all three blocks have been covered in that order, begin the uncovering phase. Uncover the red block first, then the green block, then the blue block. After removing each lid, place that same lid back at its own original starting position. The task is complete only when all three blocks are uncovered and all three lids are released and stable at their respective original starting positions."
+  ]
+}

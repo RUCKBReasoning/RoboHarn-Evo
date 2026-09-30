@@ -1,0 +1,18 @@
+RMBench attribution and redistribution notice
+
+This directory contains an adapted RMBench application for RoboHarn-Evo.
+The MIT license and its copyright notice are retained in LICENSE:
+
+    Copyright (c) 2026 Tianxing Chen (陈天行)
+
+RMBench: Memory-Dependent Robotic Manipulation Benchmark with Insights into
+Policy Design, arXiv:2603.01229.
+
+The integration includes local package imports, configurable resource paths,
+agent deployment, observation handling, and evaluation interfaces. The public
+upstream project is RoboTwin-Platform/RMBench.
+
+Simulation assets, model weights, credentials, and expert datasets are obtained
+separately under their applicable licenses. The code license does not grant
+redistribution rights to those external resources. OpenPI source under
+policy/pi05 retains its own Apache-2.0 license.

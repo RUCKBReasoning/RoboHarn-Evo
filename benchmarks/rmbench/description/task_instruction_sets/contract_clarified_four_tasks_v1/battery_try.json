@@ -1,0 +1,13 @@
+{
+  "instruction_set_id": "contract_clarified_four_tasks_v1",
+  "task_name": "battery_try",
+  "full_description": "Test distinct orientations of two batteries in the two slot positions until the dashboard needle rotates.",
+  "schema": "",
+  "preference": "Clarify the feedback-driven search and final state without revealing the hidden successful orientation combination or prescribing an arm, coordinate, grasp, or motion path.",
+  "seen": [
+    "Identify the two batteries, the two battery positions in the battery slot, and the dashboard needle. Place one battery in each slot position. Systematically test distinct combinations of battery orientations. After both batteries are seated in a new orientation combination, observe the dashboard needle. If the needle has not rotated, change the orientation of one or both batteries to a combination that has not yet been tested, reseat the batteries as needed, and observe again. Continue until the needle rotates. Finish with both batteries fully seated, released, and stable in the slot in the successful orientation combination."
+  ],
+  "unseen": [
+    "Identify the two batteries, the two battery positions in the battery slot, and the dashboard needle. Place one battery in each slot position. Systematically test distinct combinations of battery orientations. After both batteries are seated in a new orientation combination, observe the dashboard needle. If the needle has not rotated, change the orientation of one or both batteries to a combination that has not yet been tested, reseat the batteries as needed, and observe again. Continue until the needle rotates. Finish with both batteries fully seated, released, and stable in the slot in the successful orientation combination."
+  ]
+}

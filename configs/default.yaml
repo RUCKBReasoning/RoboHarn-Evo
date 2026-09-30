@@ -1,0 +1,242 @@
+seed: 7
+
+agent:
+  enabled: true
+  mode: deployment
+  decision_interval: 1
+  interrupt_on_skill_change: true
+  monitor_every_action: true
+  default_skill_registry: rmbench_default
+  memory_export: committed_summary
+  monitor:
+    stall_patience: 12
+    max_steps_per_skill: 80
+    max_retries_per_skill: 2
+    require_success_check: true
+  recovery:
+    enable_retry: true
+    enable_reobserve: true
+    # false: explicit open_gripper is model-authoritative; runtime only
+    # validates tool arguments and records the observed release outcome.
+    enable_release_guard: false
+    grasp_transport_policy: strict
+    action_geometry_repair_pending_policy: strict
+    enable_executable_candidate_temporal_consistency: true
+    allow_memory_valid_final_grounded_action: false
+    enable_automatic_self_occlusion_visual_clearance: true
+    enable_regrasp: true
+    enable_full_replan: true
+    max_recovery_attempts: 2
+  rollout_dump:
+    enabled: false
+    root: eval_result/roboharn_rollouts
+    video_fps: 10
+    trace_payload_mode: compact_v1
+    raw_trace_sidecar_enabled: false
+    # Audit the exact Scene Memory attached to every GPT request.
+    gpt_scene_memory_sidecar_enabled: true
+  observation_preprocess:
+    enabled: false
+    every_n_steps: 1
+    auto_objects: true
+    query_url: http://127.0.0.1:9101/perception_queries
+    max_objects: 3
+    segmentation:
+      backend: sam3
+      camera: head
+      service_url: http://127.0.0.1:9301
+      objects: []
+    oracle_objects:
+      enabled: false
+      include_all: true
+      max_objects: 12
+    scene_memory:
+      enabled: true
+      max_missing_steps: 20
+      stable_distance_m: 0.08
+      temporal_action_geometry_distance_m: 0.04
+      temporal_window_size: 8
+      min_candidate_score: 0.12
+      max_object_z_extent_m: 0.18
+      max_object_xy_extent_m: 0.30
+      max_object_world_z_m: 0.95
+
+dataset:
+  rmbench_root: /path/to/RMBench
+  annotation_paths:
+    - annotation/press_button.jsonl
+  task_config: demo_clean
+  train_ratio: 0.9
+  planner_camera_key: observation/head_camera/rgb
+  executor_camera_keys:
+    - head_camera
+    - left_camera
+    - right_camera
+  image_size: 96
+  state_dim: 14
+  action_dim: 14
+  evidence_state_dim: 42
+  action_horizon: 8
+  action_stride: 4
+  max_memory_candidates: 8
+  include_hard_negatives: true
+
+planner:
+  backend: robobrain_adapter
+  robobrain:
+    mode: remote
+    model_id: checkpoints/robobrain/RoboBrain2.5-8B-NV
+    device_map: auto
+    server_url: http://127.0.0.1:9001/plan
+    timeout_sec: 120
+    do_sample: false
+    temperature: 0.0
+    prompt_template: |
+      You are the planner VLM in a long-horizon robot manipulation system.
+      You receive:
+      - the global task instruction
+      - the previous committed memory
+      - two images: segment start frame and segment end frame
+      - a numeric state summary vector
+      
+      Return JSON only with this schema:
+      {
+        "commit_label": "no_update | subtask_complete | state_change",
+        "memory_text": "one concise sentence describing committed task state after this segment",
+        "subtask_text": "the next subtask the executor should perform"
+      }
+      
+      Rules:
+      - Use exactly one commit label from: no_update, subtask_complete, state_change.
+      - If there is no task-relevant state update, set commit_label to no_update and keep memory consistent.
+      - memory_text must describe current committed state, not a future plan.
+      - subtask_text must be the next action objective for the executor.
+      - Do not output explanations, markdown, or extra keys.
+      
+      Task instruction: {task}
+      Previous committed memory: {previous_memory_text}
+      State summary vector: {state_summary}
+  qwen_vl_8b:
+    base_url: http://127.0.0.1:8000/v1
+    api_key: EMPTY
+    model_path: checkpoints/qwen_vl/Qwen3-VL-8B-Thinking
+    timeout_sec: 3600
+    max_tokens: 2048
+    temperature: 0.0
+    top_p: 1.0
+    prompt_template: |
+      You are the planner VLM in a long-horizon robot manipulation system.
+      You receive:
+      - the global task instruction
+      - the previous committed memory
+      - two images: segment start frame and segment end frame
+      - a numeric state summary vector
+      
+      Return JSON only with this schema:
+      {
+        "commit_label": "no_update | subtask_complete | state_change",
+        "memory_text": "one concise sentence describing committed task state after this segment",
+        "subtask_text": "the next subtask the executor should perform"
+      }
+      
+      Rules:
+      - Use exactly one commit label from: no_update, subtask_complete, state_change.
+      - If there is no task-relevant state update, set commit_label to no_update and keep memory consistent.
+      - memory_text must describe current committed state, not a future plan.
+      - subtask_text must be the next action objective for the executor.
+      - Do not output explanations, markdown, or extra keys.
+      
+      Task instruction: {task}
+      Previous committed memory: {previous_memory_text}
+      State summary vector: {state_summary}
+  agentic:
+    base_url: http://127.0.0.1:8000/v1
+    api_key: EMPTY
+    model: checkpoints/qwen_vl/Qwen3-VL-8B-Thinking
+    timeout_sec: 3600
+    max_tokens: 2048
+    temperature: 0.0
+    top_p: 1.0
+    max_rounds: 6
+    initial_memory_text: "The task has started."
+  agent_api:
+    server_url: http://127.0.0.1:9101/plan
+    timeout_sec: 120
+    auth_token: ""
+    auth_header: Authorization
+    extra_headers: {}
+    extra_body: {}
+    prompt_template: |
+      You are the planner VLM in a long-horizon robot manipulation system.
+      You receive:
+      - the global task instruction
+      - the previous committed memory
+      - two images: segment start frame and segment end frame
+      - a numeric state summary vector
+      
+      Return JSON only with this schema:
+      {
+        "commit_label": "no_update | subtask_complete | state_change",
+        "memory_text": "one concise sentence describing committed task state after this segment",
+        "subtask_text": "the next subtask the executor should perform"
+      }
+      
+      Rules:
+      - Use exactly one commit label from: no_update, subtask_complete, state_change.
+      - If there is no task-relevant state update, set commit_label to no_update and keep memory consistent.
+      - memory_text must describe current committed state, not a future plan.
+      - subtask_text must be the next action objective for the executor.
+      - Do not output explanations, markdown, or extra keys.
+      
+      Task instruction: {task}
+      Previous committed memory: {previous_memory_text}
+      State summary vector: {state_summary}
+
+text:
+  max_task_tokens: 48
+  max_memory_tokens: 24
+  max_subtask_tokens: 24
+
+model:
+  text_hidden_dim: 128
+  image_hidden_dim: 128
+  planner_dim: 256
+  executor_dim: 256
+  executor_layers: 2
+  executor_heads: 4
+
+executor:
+  backend: pi05_adapter
+  pi05:
+    train_config_name: pi05_aloha_robotwin_full
+    model_name: your_exp_name
+    checkpoint_id: 20000
+    pi0_step: 50
+    prompt_template: "{subtask}"
+  world_action_model:
+    server_url: http://127.0.0.1:9201/act
+    timeout_sec: 120
+    auth_token: ""
+    auth_header: Authorization
+    extra_headers: {}
+    extra_body: {}
+    max_chunk_steps: 50
+    action_dim: 14
+
+loss:
+  lambda_write: 1.0
+  lambda_subtask: 1.0
+  lambda_exec: 1.0
+
+optimizer:
+  lr: 0.0003
+  weight_decay: 0.0001
+
+trainer:
+  batch_size: 4
+  epochs: 5
+  grad_clip_norm: 1.0
+  log_interval: 10
+  num_workers: 0
+  use_cuda: true
+  output_dir: outputs/default

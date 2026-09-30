@@ -1,0 +1,13 @@
+{
+  "instruction_set_id": "contract_clarified_six_tasks_v1",
+  "task_name": "rearrange_blocks",
+  "full_description": "Remember the initial identities and locations of both blocks and complete the two placements with one button press between them.",
+  "schema": "",
+  "preference": "Clarify identity continuity, stage order, and completion conditions without prescribing an arm, coordinate, grasp, or motion path.",
+  "seen": [
+    "At the start, identify and remember (1) the block located between the two mats, (2) the other block that starts on one of the mats, and (3) which mat is empty. Complete these steps in order: first move the block that started between the mats onto the empty mat and release it stably; second press and release the button exactly once; third move the other block—the one that originally started on a mat—into the now-empty space between the two mats and release it stably. Preserve each block's identity throughout the task. The task is complete only when both placements and the single intervening button press have been completed in that order."
+  ],
+  "unseen": [
+    "At the start, identify and remember (1) the block located between the two mats, (2) the other block that starts on one of the mats, and (3) which mat is empty. Complete these steps in order: first move the block that started between the mats onto the empty mat and release it stably; second press and release the button exactly once; third move the other block—the one that originally started on a mat—into the now-empty space between the two mats and release it stably. Preserve each block's identity throughout the task. The task is complete only when both placements and the single intervening button press have been completed in that order."
+  ]
+}

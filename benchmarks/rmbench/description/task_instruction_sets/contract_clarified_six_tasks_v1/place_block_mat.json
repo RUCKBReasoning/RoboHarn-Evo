@@ -1,0 +1,13 @@
+{
+  "instruction_set_id": "contract_clarified_six_tasks_v1",
+  "task_name": "place_block_mat",
+  "full_description": "Move each of the three blocks to the green mat and then return it to its own original blue mat, processing the blocks from left to right.",
+  "schema": "",
+  "preference": "Clarify left-to-right processing, original-mat identity, the required green-mat visit, and the final state without prescribing an arm, coordinate, grasp, or motion path.",
+  "seen": [
+    "At the start, identify the three blocks from left to right and remember the original blue mat of each block. Process the blocks in that left-to-right order. For each block, move that block onto the green mat and release it stably; then move the same block from the green mat back onto its own remembered original blue mat and release it stably before processing the next block. Preserve every block-to-original-mat identity throughout. The task is complete only after all three blocks have each visited the green mat and all three are released and stable on their respective original blue mats."
+  ],
+  "unseen": [
+    "At the start, identify the three blocks from left to right and remember the original blue mat of each block. Process the blocks in that left-to-right order. For each block, move that block onto the green mat and release it stably; then move the same block from the green mat back onto its own remembered original blue mat and release it stably before processing the next block. Preserve every block-to-original-mat identity throughout. The task is complete only after all three blocks have each visited the green mat and all three are released and stable on their respective original blue mats."
+  ]
+}

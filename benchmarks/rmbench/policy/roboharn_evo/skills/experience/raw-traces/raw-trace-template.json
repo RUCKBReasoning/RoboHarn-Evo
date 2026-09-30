@@ -1,0 +1,105 @@
+{
+  "trace_id": "example_trace_id",
+  "trial_id": "example_trial_id",
+  "episode_id": 0,
+  "seed": 0,
+  "task_family": "pick_and_place",
+  "task": "put the mug into the drawer",
+  "global_task": "put the mug into the drawer",
+  "subtask": "grasp the mug",
+  "subtask_type": "grasp",
+  "OOD_scenario": "grasp_lost",
+  "trajectory_id": "example_trajectory_id",
+  "step": 42,
+  "timestamp": "YYYY-MM-DDTHH:MM:SS",
+  "observation_summary": "Describe the observed scene state at the OOD moment.",
+  "robot_state": {
+    "step": 42,
+    "step_limit": 200,
+    "joint_dim": 16,
+    "joint_norm": 1.234,
+    "left": {
+      "xyz": [0.123, 0.456, 0.789],
+      "quat_wxyz": [1.0, 0.0, 0.0, 0.0],
+      "rpy": [0.0, 0.0, 0.0],
+      "gripper": 0.0
+    },
+    "right": {
+      "xyz": [0.223, -0.456, 0.789],
+      "quat_wxyz": [1.0, 0.0, 0.0, 0.0],
+      "rpy": [0.0, 0.0, 0.0],
+      "gripper": 1.0
+    }
+  },
+  "monitor_status": {
+    "status": "warning",
+    "signals": [
+      {
+        "name": "grasp_lost",
+        "level": "warning",
+        "reason": "The manipulated object is no longer moving with the gripper.",
+        "score": 0.84
+      }
+    ]
+  },
+  "available_tools": [
+    "open_gripper",
+    "retreat_arm",
+    "reobserve_scene"
+  ],
+  "recovery_workflow": "recover-grasp-lost",
+  "recovery_primitives": [
+    "open_gripper",
+    "retreat_arm",
+    "reobserve_scene"
+  ],
+  "tool_calls": [
+    {"tool_name": "open_gripper", "args": {}},
+    {"tool_name": "retreat_arm", "args": {}},
+    {"tool_name": "reobserve_scene", "args": {}}
+  ],
+  "tool_results": [
+    {"tool_name": "open_gripper", "success": true, "message": "gripper opened"}
+  ],
+  "post_recovery_intent": "retry",
+  "post_recovery_decision": "retry",
+  "outcome": "recovery_success_retry",
+  "post_window_outcome": "success",
+  "secondary_signal": "",
+  "retry_success_after_recovery": true,
+  "final_episode_status": "success",
+  "outcome_evidence": {
+    "window_size": 12,
+    "policy_action": "retry",
+    "intended_action": "retry",
+    "effective_action": "retry",
+    "retry_reentered_vla": true,
+    "success_seen": false,
+    "events": [
+      {"event": "recovery_policy", "line": 113, "env_step": 43, "action": "retry"},
+      {"event": "vla_request", "line": 119, "env_step": 44, "subtask": "grasp the mug"},
+      {"event": "monitor_signal", "line": 126, "env_step": 52, "signal": "task_success"}
+    ]
+  },
+  "budget_used": {
+    "retry_used": 1,
+    "reset_used": 0,
+    "replan_used": 0
+  },
+  "failure_reason": "The manipulated object is no longer moving with the gripper.",
+  "trace_file": "path/to/original/agent_trace.jsonl",
+  "event_window": {
+    "monitor_line": 100,
+    "router_line": 104,
+    "result_line": 109,
+    "post_line": 113
+  },
+  "retrieval_tags": [
+    "grasp_lost",
+    "pick_and_place",
+    "grasp",
+    "visible_object",
+    "retry"
+  ],
+  "notes": "Keep this record factual. Do not include benchmark labels, annotation fields, or gold OOD labels in retrieval inputs."
+}

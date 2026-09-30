@@ -1,0 +1,54 @@
+{
+  "schema": "tcm/libero_p0_capability_mapping/v1",
+  "status": "DEVELOPMENT",
+  "source_domain": "RMBench",
+  "target_domain": "LIBERO-PRO",
+  "target_task": {
+    "suite": "libero_spatial_swap",
+    "task_id": 0,
+    "abstract_goal": "move one supported rigid object to the requested destination support"
+  },
+  "mappings": [
+    {
+      "source_capability": "temporarily buffer one object to unblock a multi-object rearrangement",
+      "primitive": "task planning",
+      "condition": "a required source or destination is blocked and a free temporary support is available",
+      "expected_effect": "the blocked relation becomes available for the remaining rearrangement",
+      "target_executor_realization_type": "high-level subtask prompt",
+      "mapping_valid": false,
+      "reason": "the selected target task moves one object directly and has no blocked multi-object swap relation",
+      "defined_before_outcome": true
+    },
+    {
+      "source_capability": "attach to a rigid object supported inside a bounded source container",
+      "primitive": "grasp",
+      "condition": "the rigid target is not held, rests inside a source container, and exposes opposing graspable surfaces above the container rim",
+      "expected_effect": "the target leaves its support and moves with the closed gripper",
+      "target_executor_realization_type": "prompt-level native-policy guidance",
+      "mapping_valid": false,
+      "reason": "the target bowl rests directly on a table rather than inside a bounded source container, so the frozen supported source condition is not preserved",
+      "defined_before_outcome": true
+    },
+    {
+      "source_capability": "release a carried rigid object inside a bounded container",
+      "primitive": "place",
+      "condition": "the object is held and the bounded target interior is empty",
+      "expected_effect": "support transfers from the gripper to the bounded target interior",
+      "target_executor_realization_type": "prompt-level native-policy guidance",
+      "mapping_valid": false,
+      "reason": "the target is an open plate rather than a bounded container interior, so the source placement relation is not preserved",
+      "defined_before_outcome": true
+    },
+    {
+      "source_capability": "activate a fixed control by direct contact",
+      "primitive": "contact",
+      "condition": "a fixed control remains pending after manipulation prerequisites",
+      "expected_effect": "the control visibly or logically changes activation state",
+      "target_executor_realization_type": "prompt-level native-policy guidance",
+      "mapping_valid": false,
+      "reason": "the selected target task contains no terminal control interaction",
+      "defined_before_outcome": true
+    }
+  ],
+  "scientific_boundary": "mapping validity is declared before observing the 15-episode outcomes; no mapping is a production applicability rule"
+}

@@ -1,0 +1,32 @@
+LIBERO-PRO attribution and redistribution notice
+
+This directory includes an adapted application based on rpent-liberopro 0.1.1.
+The code's MIT license is retained at:
+
+    rpent_liberopro-0.1.1.dist-info/licenses/LICENSE
+
+    Copyright (c) 2023 Lifelong Robot Learning.
+
+The packaged distribution identifies RLinf/LIBERO-PRO as its homepage and
+Zxy-MLlab/LIBERO-PRO as the upstream project. Local changes provide explicit
+asset paths, import boundaries, and agent/evaluation interfaces.
+
+The packaged metadata identifies task data as Creative Commons Attribution
+4.0 International. BDDL definitions and serialized initial states retain their
+upstream contents. Dataset source: zhouxueyang/LIBERO-Pro on Hugging Face.
+
+Required dataset attribution:
+Xueyang Zhou, Yangming Xu, Guiyao Tie, Yongchao Chen, Guowen Zhang,
+Duanfeng Chu, Pan Zhou, and Lichao Sun,
+"LIBERO-PRO: Towards Robust and Fair Evaluation of Vision-Language-Action
+Models Beyond Memorization," 2025, arXiv:2510.03827.
+
+LIBERO attribution:
+Bo Liu, Yifeng Zhu, Chongkai Gao, Yihao Feng, Qiang Liu, Yuke Zhu, and
+Peter Stone, "LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot
+Learning," 2023, arXiv:2306.03310.
+
+The Creative Commons Attribution 4.0 terms are identified in the retained
+distribution METADATA. External simulation assets, model checkpoints, and
+expert datasets require their own applicable permissions and are not supplied
+by this code license.

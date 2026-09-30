@@ -1,0 +1,54 @@
+schema: roboharn_evo/hpk/geometry_policy_config/v3
+policy_id: hpk_geometry_policy/v3
+scoring_profile: hpk_geometry_score/v1
+grasp_width_buckets_m:
+  narrow_max: 0.035
+  medium_max: 0.070
+reach_distance_buckets_m:
+  near_max: 0.20
+  medium_max: 0.45
+direction_classification:
+  epsilon: 0.000001
+  vertical_to_horizontal_ratio: 2.0
+  horizontal_to_vertical_ratio: 2.0
+  fallback_above_vertical_ratio_min: 0.75
+  fallback_below_vertical_ratio_max: -0.75
+  fallback_lateral_vertical_ratio_abs_max: 0.25
+soft_score:
+  match_weights:
+    strategy_family_match: 1.0
+    reference_frame_match: 1.0
+    target_relation_match: 1.0
+    target_reference_role_match: 1.0
+    approach_family_match: 1.0
+    approach_direction_match: 1.0
+    orientation_match: 1.0
+    grasp_region_match: 1.0
+    grasp_semantic_part_match: 1.0
+    geometry_source_class_match: 1.0
+  reach_score:
+    formula_id: inverse_distance_v1
+    numerator: 0.5
+    denominator_offset: 1.0
+    round_digits: 9
+    bucket_scores:
+      near: 0.375
+      medium: 0.25
+      far: 0.125
+      unknown: 0.0
+  avoid_penalties:
+    repeat_equivalent_failed_candidate: -1.0
+all_hard_mismatch_behavior: fail_closed
+semantic_attempt:
+  max_pending_env_step_gap: 8
+  max_segments: 2
+safe_exploration:
+  mode: alternate_safe_baseline_rank_v1
+  activate_when: no_accepted_exact_match
+  min_eligible: 2
+  rank_offset: 1
+  max_selections_per_condition_per_episode: 1
+  honor_requested: true
+  exclude_blocked: true
+  require_guard_legal: true
+  disable_after_accepted_exact_match: true

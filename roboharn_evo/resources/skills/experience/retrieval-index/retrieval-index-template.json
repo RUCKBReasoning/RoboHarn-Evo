@@ -1,0 +1,50 @@
+{
+  "case_id": "example_case_id",
+  "trial_id": "example_trial_id",
+  "trace_id": "example_trace_id",
+  "OOD_scenario": "grasp_lost",
+  "task_family": "pick_and_place",
+  "object": "mug",
+  "subtask_type": "grasp",
+  "recovery_workflow": "recover-grasp-lost",
+  "recovery_primitives": [
+    "open_gripper",
+    "retreat_arm",
+    "reobserve_scene"
+  ],
+  "post_recovery_intent": "retry",
+  "outcome": "recovery_success_retry",
+  "summary_path": "case-summaries/example_case_id.md",
+  "trace_path": "raw-traces/recovery_trials.jsonl",
+  "lesson_paths": [
+    "learned-lessons/example_lesson.md"
+  ],
+  "grounding_summary": {
+    "step": 42,
+    "joint_norm": 1.234,
+    "left": {
+      "xyz": [0.123, 0.456, 0.789],
+      "rpy": [0.0, 0.0, 0.0],
+      "gripper": 0.0
+    },
+    "right": {
+      "xyz": [0.223, -0.456, 0.789],
+      "rpy": [0.0, 0.0, 0.0],
+      "gripper": 1.0
+    }
+  },
+  "retrieval_tags": [
+    "grasp_lost",
+    "pick_and_place",
+    "grasp",
+    "visible_object",
+    "retry"
+  ],
+  "support_count": 3,
+  "opposing_count": 0,
+  "last_validated_at": "YYYY-MM-DDTHH:MM:SS+00:00",
+  "confidence": "medium",
+  "avoid_pattern": false,
+  "failure_penalty": 0,
+  "notes": "Metadata only. Keep VLM-hidden benchmark labels, annotations, and gold OOD labels out of retrieval inputs."
+}

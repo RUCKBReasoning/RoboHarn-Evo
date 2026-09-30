@@ -1,0 +1,13 @@
+{
+  "instruction_set_id": "contract_clarified_six_tasks_v1",
+  "task_name": "press_button",
+  "full_description": "Read the two visible numbers, enter them on the left and middle buttons, then confirm with the right button.",
+  "schema": "",
+  "preference": "Clarify the number-to-button mapping, distinct press counting, and confirmation order without prescribing an arm, coordinate, contact pose, or motion path.",
+  "seen": [
+    "At the start, read and remember the two visible number cards: the number on the left and the number on the right. First press the left button exactly as many times as the left number. Each counted press must be a separate complete press followed by release before the next press. Then press the middle button exactly as many times as the right number, again using separate press-and-release cycles. Do not add or omit presses. Only after both counts are complete, press the right confirmation button exactly once. The task is complete when the left and middle press counts match their respective visible numbers and the final confirmation press is registered."
+  ],
+  "unseen": [
+    "At the start, read and remember the two visible number cards: the number on the left and the number on the right. First press the left button exactly as many times as the left number. Each counted press must be a separate complete press followed by release before the next press. Then press the middle button exactly as many times as the right number, again using separate press-and-release cycles. Do not add or omit presses. Only after both counts are complete, press the right confirmation button exactly once. The task is complete when the left and middle press counts match their respective visible numbers and the final confirmation press is registered."
+  ]
+}

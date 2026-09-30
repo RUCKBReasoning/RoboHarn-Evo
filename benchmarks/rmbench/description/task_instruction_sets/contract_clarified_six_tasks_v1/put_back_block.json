@@ -1,0 +1,13 @@
+{
+  "instruction_set_id": "contract_clarified_six_tasks_v1",
+  "task_name": "put_back_block",
+  "full_description": "Move the block from its original mat to the center, press the button, then return the same block to its original mat.",
+  "schema": "",
+  "preference": "Clarify original-location memory, the center-button-return stage order, and the final release condition without prescribing an arm, coordinate, grasp, or motion path.",
+  "seen": [
+    "At the start, identify the block and remember which one of the four mats is its original mat. Complete these stages in order: first move the block to the center area and release it stably there; second, while the block remains in the center, press and release the button exactly once; third move the same block back onto its remembered original mat and release it stably. The task is complete only when the button press has been registered and the block is again resting on its original mat without being held."
+  ],
+  "unseen": [
+    "At the start, identify the block and remember which one of the four mats is its original mat. Complete these stages in order: first move the block to the center area and release it stably there; second, while the block remains in the center, press and release the button exactly once; third move the same block back onto its remembered original mat and release it stably. The task is complete only when the button press has been registered and the block is again resting on its original mat without being held."
+  ]
+}

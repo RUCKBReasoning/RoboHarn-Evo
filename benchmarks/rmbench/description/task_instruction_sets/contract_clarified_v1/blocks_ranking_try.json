@@ -1,0 +1,13 @@
+{
+  "instruction_set_id": "contract_clarified_v1",
+  "task_name": "blocks_ranking_try",
+  "full_description": "Test distinct left-to-right cube orderings with one complete button press-and-release after each ordering until the hidden correct ordering is accepted.",
+  "schema": "",
+  "preference": "Clarify the task contract without prescribing an expert swap sequence, robot arm, coordinate, or seed.",
+  "seen": [
+    "Three differently colored cubes are arranged in a row, and the correct left-to-right order is hidden. The button only tests the current cube order; pressing it does not rearrange the cubes. First, press and release the button exactly once to test the current order. If the task is not successful, use the robot to rearrange the cubes into a different, untested left-to-right order, then press and release the button exactly once to test the new order. Repeat this rearrange-then-test cycle until the task succeeds. Do not press the button again unless the cube order has changed."
+  ],
+  "unseen": [
+    "Three differently colored cubes are arranged in a row, and the correct left-to-right order is hidden. The button only tests the current cube order; pressing it does not rearrange the cubes. First, press and release the button exactly once to test the current order. If the task is not successful, use the robot to rearrange the cubes into a different, untested left-to-right order, then press and release the button exactly once to test the new order. Repeat this rearrange-then-test cycle until the task succeeds. Do not press the button again unless the cube order has changed."
+  ]
+}

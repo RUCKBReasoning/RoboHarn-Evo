@@ -1,0 +1,76 @@
+# Independent episodes, not a sequential update -> probe experiment.
+# 相对路径从 RoboHarn-Evo 项目目录解析。
+base_config: configs/rmbench_deploy_policy.yaml
+assets_root: /path/to/RMBench/assets
+python: /path/to/simulator/environment/bin/python
+# Keep this short: NVRTC can reject deeply nested temporary-cache paths.
+output_root: eval_result/rmbench/par_demo
+task_config: demo_clean
+instruction_set: rmbench_original
+episode_timeout_sec: 7200
+shutdown_grace_sec: 45
+
+# Choose your GPUs. Services must already be running. A shared Agent gateway
+# needs --max-concurrent-requests 2 (keep --upstream-stream if desired).
+# Shared SAM3 must allow input/output paths under the output_root above.
+workers:
+  - gpu: "0"
+    agent_api_url: http://127.0.0.1:19115
+    sam3_url: http://127.0.0.1:19315
+  - gpu: "1"
+    agent_api_url: http://127.0.0.1:19115
+    sam3_url: http://127.0.0.1:19315
+
+overrides:
+  eval:
+    step_limit: 200
+  data_type:
+    depth: true
+  agent:
+    recovery:
+      enable_retry: false
+      enable_reobserve: false
+      planner_context_mode: compact_v1
+    rollout_dump:
+      enabled: true
+      video_fps: 30
+    observation_preprocess:
+      every_n_steps: 1
+      # Six upstream attempts of 600 s, up to 5 x 60 s backoff, plus margin.
+      query_timeout_sec: 3960
+    hpk:
+      mode: "off"
+    hpk_v3:
+      mode: "off"
+    pure_tool_control:
+      enabled: true
+      trigger_step: 0
+      signal: task_level_recovery_control
+      reason: independent parallel rollout
+      wait_for_scene_memory: true
+      max_wait_steps: 2
+      retry_budget: 0
+      max_rounds: 10
+      max_control_turns: 64
+      max_no_progress_control_turns: 10
+      backend_error_budget: 1
+      empty_plan_replan_threshold: 2
+      bootstrap_with_planner: true
+      skip_vla_rollout: true
+  planner:
+    agent_api:
+      timeout_sec: 3960
+  ood:
+    agent_api:
+      timeout_sec: 3960
+  recovery:
+    agent_api:
+      timeout_sec: 3960
+
+# Any discovered RMBench task is allowed; repetition is also allowed and gets
+# a distinct directory. Optional config/overrides may be supplied per job.
+jobs:
+  - {task: press_button, seed: 0}
+  - {task: press_button, seed: 1}
+  - {task: press_button, seed: 2}
+  - {task: press_button, seed: 3}

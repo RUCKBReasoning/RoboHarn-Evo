@@ -1,0 +1,35 @@
+# Harness VLA 基线评测配置。
+evaluation_protocol: benchmarks/rmbench/experiments/hpk_formal_q1_v1.yaml
+rpent_root: /path/to/HarnessVLA
+rpent_commit: ""
+planner_python: /path/to/planner/environment/bin/python
+simulator_python: /path/to/simulator/environment/bin/python
+model: gpt-5.5
+reasoning_effort: high
+auth_file: /path/to/provider/auth.json
+auth_backend: chatgpt_account
+# Network egress only; this is not an API/model relay provider.
+network_proxy: http://127.0.0.1:7890
+vla_checkpoint: /path/to/checkpoints/pi05_rmbench
+# Compatibility load verified; exact pi05_rmbench training transforms still need confirmation.
+vla_config: pi05_aloha_full_base
+vla_asset_id: local/rmbench
+vla_url: http://127.0.0.1:19201/act
+sam_url: http://127.0.0.1:19301/segment_image
+action_chunk: 32
+action_horizon: 50
+bootstrap:
+  reference_seed: 0
+  action_limit: 1500
+  max_turns: 512
+  wall_timeout_sec: 14400
+  reset: same_reference_seed_only
+evaluation:
+  # 此配置使用独立的执行预算。
+  action_limit: 1000
+  step_limit_mode: override
+  max_turns: 64
+  wall_timeout_sec: 7200
+  reset: false
+  memory_read_only: true
+  automatic_episode_retry: false

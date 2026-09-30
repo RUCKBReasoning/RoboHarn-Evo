@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "roboharn-evo"
+version = "0.1.0"
+description = "RoboHarn-Evo hierarchical physical knowledge for self-improving robotic manipulation"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.10"
+dependencies = [
+  "imageio>=2.30",
+  "numpy>=1.24",
+  "Pillow>=9.0",
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+api = ["openai>=1.0"]
+expert = ["h5py>=3.8"]
+train = ["torch>=2.1"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["roboharn_evo*"]
+namespaces = true
+
+[tool.setuptools.package-data]
+roboharn_evo = [
+  "resources/configs/*.yaml",
+  "resources/configs/*.json",
+  "resources/skills/**/*.md",
+  "resources/skills/**/*.json",
+  "agent/reflector/*.md",
+  "benchmark_adapters/**/*.md",
+]
+
+[tool.setuptools.exclude-package-data]
+roboharn_evo = ["**/__pycache__/**", "**/*.pyc", "**/*.pyo", "resources/experience_snapshots/**", "resources/skills/**/visualization/**"]

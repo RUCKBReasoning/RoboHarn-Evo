@@ -1,0 +1,60 @@
+scientific_scope: "ESI RQ2 Task Knowledge only"
+
+upstream:
+  root: benchmarks/esi_bench/upstream
+  provider: gpt
+  model: gpt-5
+  max_steps: 30
+  min_steps: 1
+  confidence_threshold: 0.9
+  max_new_tokens: 1024
+  temperature: 0.2
+  top_p: 0.9
+  robot: R1
+
+hpk:
+  mode: task
+  candidate_cap: 8
+  context_token_cap: 256
+  retrieval_provider: agent_api
+  retrieval_model: gpt-5
+  frozen_store: eval_result/esi_bench/task_knowledge_p0/frozen_store
+  flat_store: eval_result/esi_bench/task_knowledge_p0/frozen_store/flat_lessons.jsonl
+  shuffle_manifest: eval_result/esi_bench/task_knowledge_p0/frozen_store/shuffle_manifest.json
+  heldout_store_update_enabled: false
+  action_knowledge_enabled: false
+
+splits:
+  instances: eval_result/esi_bench/task_knowledge_p0/splits/public_instances.jsonl
+  manifest: eval_result/esi_bench/task_knowledge_p0/splits/split_manifest.json
+  count_audit: eval_result/esi_bench/task_knowledge_p0/splits/esi_split_audit.json
+  evaluation_part: heldout
+  source: eval_result/esi_bench/task_knowledge_p0/splits/source_instances.jsonl
+  development: eval_result/esi_bench/task_knowledge_p0/splits/development_instances.jsonl
+  heldout: eval_result/esi_bench/task_knowledge_p0/splits/heldout_instances.jsonl
+
+task_subset:
+  - rigid_containment
+  - partial_occlusion
+  - connectivity
+
+outputs:
+  source_traces: eval_result/esi_bench/task_knowledge_p0/source_traces
+  frozen_store: eval_result/esi_bench/task_knowledge_p0/frozen_store
+  development: eval_result/esi_bench/task_knowledge_p0/development
+  heldout: eval_result/esi_bench/task_knowledge_p0/heldout
+  analysis: eval_result/esi_bench/task_knowledge_p0/analysis
+
+analysis:
+  bootstrap_seed: 20260825
+  bootstrap_samples: 2000
+  confidence_bins: 10
+  high_confidence_threshold: 0.9
+  frozen_probe_annotations: eval_result/esi_bench/task_knowledge_p0/probes/frozen_probes.jsonl
+
+runtime_gates:
+  formal: false
+  require_renderer_preflight: true
+  require_canonical_render_human_inspection: true
+  canonical_render_audit: eval_result/esi_bench/task_knowledge_p0/runtime_gates/canonical_render_audit.json
+  require_valid_canonical_render_for_blackwell_or_50_series: true

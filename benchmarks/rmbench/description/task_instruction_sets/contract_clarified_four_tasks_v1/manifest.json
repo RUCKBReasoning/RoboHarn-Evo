@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "instruction_set_id": "contract_clarified_four_tasks_v1",
+  "source": "researcher_authored",
+  "base_instruction_set": "rmbench_original",
+  "created_date": "2026-08-13",
+  "scope": "Clarify the ordered task contract and completion conditions for four RMBench tasks without exposing seeds, world coordinates, robot-arm assignments, or hidden task answers.",
+  "design_rules": [
+    "Preserve the task objective and object relationships defined by the original RMBench instruction.",
+    "State the required order of task stages, the identities that must remain continuous, and the observable completion conditions.",
+    "Do not include environment seeds, fixed world coordinates, task-specific arm assignments, low-level motion commands, or hidden correct configurations.",
+    "Apply the same instruction text to every evaluated method in this condition.",
+    "Report this clarified-instruction condition separately from vanilla RMBench."
+  ],
+  "tasks": {
+    "rearrange_blocks": {
+      "change_class": "task_contract_clarification",
+      "base_file": "description/task_instruction/rearrange_blocks.json",
+      "base_file_sha256": "41ca10f14885e4a6e2b2a3067ab104cee4af8ac3c56727ebe27baab2a3f6b878",
+      "rationale": "Make the initial block identities, empty mat, required stage order, and final placement explicit."
+    },
+    "swap_blocks": {
+      "change_class": "task_contract_clarification",
+      "base_file": "description/task_instruction/swap_blocks.json",
+      "base_file_sha256": "dca29a86565cc071d6e6bf42ec9038dc40086ca2550b3948355fed2dfd44da63",
+      "rationale": "Make the initial block-to-tray identities, temporary-buffer role, capacity constraint, and button timing explicit."
+    },
+    "swap_T": {
+      "change_class": "task_contract_clarification",
+      "base_file": "description/task_instruction/swap_T.json",
+      "base_file_sha256": "a3e495c4c10bd489588c1e8ab5921adcac4e4cb5beaf47abd31e2b6ed5564ebf",
+      "rationale": "Make clear that each complete initial pose contains both position and orientation and must be assigned to the other T-block."
+    },
+    "battery_try": {
+      "change_class": "task_contract_clarification",
+      "base_file": "description/task_instruction/battery_try.json",
+      "base_file_sha256": "20cf1990717d309cee64b41db0d308bea65cf0b0e01f3eb3a91d2d1bdc13cb17",
+      "rationale": "State that distinct orientation combinations must be tested through observable dashboard feedback without revealing the hidden successful combination."
+    }
+  }
+}

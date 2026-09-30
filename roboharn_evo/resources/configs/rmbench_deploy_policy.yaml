@@ -1,0 +1,205 @@
+# Basic experiment configuration (keep unchanged)
+policy_name: null
+task_name: null
+task_config: null
+ckpt_setting: null
+seed: null
+instruction_type: unseen
+instruction_set: rmbench_original
+eval:
+  test_num: null
+  start_seed: null
+data_type:
+  depth: true
+
+# Add Parameters You Need
+planning_interval: 1
+initial_memory_text: "The task has started."
+
+agent:
+  enabled: true
+  mode: deployment
+  decision_interval: 1
+  interrupt_on_skill_change: true
+  monitor_every_action: true
+  default_skill_registry: rmbench_default
+  memory_export: committed_summary
+  monitor:
+    stall_patience: 12
+    max_steps_per_skill: 80
+    max_retries_per_skill: 2
+    require_success_check: true
+  recovery:
+    enable_retry: true
+    # compact_v1 sends one public planner scene projection.  Use legacy only
+    # for rollback comparisons; runtime/executor memory remains complete.
+    planner_context_mode: compact_v1
+    # Ablation switch. CLI: --agent.recovery.enable_reobserve False
+    enable_reobserve: true
+    # Explicit open_gripper is dispatched without placement/holding gates.
+    # Roll back with --agent.recovery.enable_release_guard True.
+    enable_release_guard: false
+    # Disable attachment-evidence gates and automatic grasp-failure recovery.
+    grasp_transport_policy: evidence_only
+    # strict | safe_motion | disabled.  Keep contact/close blocked while
+    # allowing runtime-derived clearance motion during geometry repair.
+    action_geometry_repair_pending_policy: safe_motion
+    # Less conservative geometry/visibility settings for the current experiment.
+    enable_executable_candidate_temporal_consistency: false
+    allow_memory_valid_final_grounded_action: true
+    enable_automatic_self_occlusion_visual_clearance: false
+    enable_regrasp: true
+    enable_full_replan: true
+    max_recovery_attempts: 2
+  rollout_dump:
+    enabled: false
+    root: eval_result/roboharn_rollouts
+    video_fps: 10
+    # compact_v1 compacts raw perception, Scene Memory, and finalized events;
+    # runtime/planner/executor state remains complete.
+    trace_payload_mode: compact_v1
+    # Optional one-copy full perception payload in rollout/raw_perception.jsonl.
+    raw_trace_sidecar_enabled: false
+    # Per-request model-visible Scene Memory in rollout/gpt_scene_memory.jsonl.
+    gpt_scene_memory_sidecar_enabled: true
+  observation_preprocess:
+    enabled: true
+    every_n_steps: 5
+    auto_objects: true
+    query_url: http://127.0.0.1:9101/perception_queries
+    query_timeout_sec: 120
+    max_objects: 3
+    segmentation:
+      backend: sam3
+      camera: head
+      cameras: [head, left, right]
+      verification_cameras: [third]
+      service_url: http://127.0.0.1:9301
+      objects: []
+    oracle_objects:
+      enabled: false
+      include_all: true
+      max_objects: 12
+    grounding:
+      enabled: true
+      camera: head
+      cameras: [head, left, right, third]
+      min_valid_ratio: 0.05
+      max_points: 5000
+      approach_height_m: 0.08
+    scene_memory:
+      enabled: true
+      max_missing_steps: 20
+      stable_distance_m: 0.08
+      temporal_action_geometry_distance_m: 0.04
+      temporal_window_size: 8
+      min_candidate_score: 0.12
+      max_object_z_extent_m: 0.18
+      max_object_xy_extent_m: 0.30
+      max_object_world_z_m: 0.95
+      robot_self_filter_radius_m: 0.08
+      robot_self_filter_z_margin_m: 0.08
+
+planner:
+  backend: agent_api
+  robobrain:
+    mode: remote
+    model_id: checkpoints/robobrain/RoboBrain2.5-8B-NV
+    device_map: auto
+    server_url: http://127.0.0.1:9001/plan
+    timeout_sec: 600
+    do_sample: false
+    temperature: 0.0
+    prompt_skill: control-turn-planner
+  qwen_vl_8b:
+    base_url: http://127.0.0.1:8000/v1
+    api_key: EMPTY
+    model_path: checkpoints/qwen_vl/Qwen3-VL-8B-Thinking
+    timeout_sec: 3600
+    max_tokens: 2048
+    temperature: 0.0
+    top_p: 1.0
+    prompt_skill: control-turn-planner
+  agentic:
+    base_url: http://127.0.0.1:8000/v1
+    api_key: EMPTY
+    model: checkpoints/qwen_vl/Qwen3-VL-8B-Thinking
+    timeout_sec: 3600
+    max_tokens: 2048
+    temperature: 0.0
+    top_p: 1.0
+    max_rounds: 6
+    initial_memory_text: "The task has started."
+  agent_api:
+    server_url: http://127.0.0.1:9101/plan
+    timeout_sec: 600
+    auth_token: ""
+    auth_header: Authorization
+    extra_headers: {}
+    extra_body: {}
+    prompt_skill: control-turn-planner
+
+ood:
+  backend: agent_api
+  agent_api:
+    server_url: http://127.0.0.1:9101/ood
+    timeout_sec: 120
+    auth_token: ""
+    auth_header: Authorization
+    extra_headers: {}
+    extra_body: {}
+    prompt_template: |
+      You are the OOD detector VLM in a robot manipulation system.
+      You receive a structured payload describing the current rollout state.
+
+      Return JSON only with this schema:
+      {
+        "OOD_scenario": "none | object_not_visible | motion_blocked | grasp_lost | scene_drift_detected | requires_replan",
+        "reason": "short evidence-based explanation",
+        "confidence": 0.0
+      }
+
+      Rules:
+      - You must directly output the OOD classification in `OOD_scenario`.
+      - Do not output only a summary for the runtime to classify later.
+      - If there is insufficient evidence for an OOD diagnosis, return `OOD_scenario` as `none`.
+      - Do not output markdown, prose outside JSON, or extra keys.
+
+      Skill payload: {skill_payload}
+
+recovery:
+  backend: agent_api
+  agent_api:
+    server_url: http://127.0.0.1:9101/recover
+    timeout_sec: 900
+    auth_token: ""
+    auth_header: Authorization
+    extra_headers: {}
+    extra_body: {}
+
+executor:
+  backend: pi05_api
+  pi05:
+    train_config_name: pi05_aloha_robotwin_full
+    model_name: pi05_base
+    checkpoint_id: 0
+    pi0_step: 50
+    prompt_template: "{subtask}"
+  pi05_api:
+    server_url: http://127.0.0.1:9201/act
+    timeout_sec: 120
+    auth_token: ""
+    auth_header: Authorization
+    extra_headers: {}
+    extra_body: {}
+    max_chunk_steps: 50
+    action_dim: 14
+  world_action_model:
+    server_url: http://127.0.0.1:9201/act
+    timeout_sec: 120
+    auth_token: ""
+    auth_header: Authorization
+    extra_headers: {}
+    extra_body: {}
+    max_chunk_steps: 50
+    action_dim: 14

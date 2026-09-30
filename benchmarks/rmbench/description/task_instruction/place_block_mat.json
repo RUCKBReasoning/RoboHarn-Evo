@@ -1,0 +1,11 @@
+{
+  "full_description": "",
+  "schema": "",
+  "preference": "",
+  "seen": [
+    "Pick up the blocks from the blue mat and place them on the green mat, then put them back on the original mat, starting from left to right."
+  ],
+  "unseen": [
+    "Pick up the blocks from the blue mat and place them on the green mat, then put them back on the original mat, starting from left to right."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "instruction_set_id": "contract_clarified_four_tasks_v1",
+  "task_name": "swap_T",
+  "full_description": "Swap the complete initial poses of the two T-shaped blocks, including both position and orientation.",
+  "schema": "",
+  "preference": "Clarify complete-pose exchange and final release conditions without prescribing an arm, coordinate, grasp, or motion path.",
+  "seen": [
+    "At the start, identify the two T-shaped blocks and remember both the position and orientation of each block. Swap their complete poses: place each T-block at the other T-block's original position and match the other block's original orientation. At completion, both T-blocks must be released, stable on the table, and no longer held by either gripper."
+  ],
+  "unseen": [
+    "At the start, identify the two T-shaped blocks and remember both the position and orientation of each block. Swap their complete poses: place each T-block at the other T-block's original position and match the other block's original orientation. At completion, both T-blocks must be released, stable on the table, and no longer held by either gripper."
+  ]
+}
