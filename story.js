@@ -27,7 +27,7 @@
     proofButtons.forEach(b=>b.setAttribute('aria-pressed','false'));
     setText('memory-kicker',s.kicker);setText('memory-title',s.title);setText('memory-description',s.description);setText('memory-provenance',s.provenance);
     setText('memory-proof-text','Select an entry to see its source, its role in the current task, and the saved adoption result.');
-    flags([['Source','Saved decision logs'],['Display','Editorial replay']]);
+    flags([['Source','Saved decision logs']]);
   }
   function flags(rows) {
     const list=document.getElementById('memory-proof-flags');list.replaceChildren();

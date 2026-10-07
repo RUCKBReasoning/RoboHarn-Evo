@@ -8,7 +8,6 @@
   ],
   "language": "en",
   "audio": "Silent. No music or narration.",
-  "evidence": "Editorial summaries of saved events. Retrieval graphics are not live telemetry.",
   "scenes": [
     {
       "kind": "hook",
