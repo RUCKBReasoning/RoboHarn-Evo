@@ -1,0 +1,92 @@
+{
+  "description": "Selected saved decisions for the film and interactive knowledge panel. Entry indices are zero-based; event lines refer to the original events.jsonl.",
+  "run": "20261001/210736",
+  "decisions": [
+    {
+      "event": "afk_v3_action_retrieval",
+      "source_line": 82,
+      "layer": "action",
+      "selected_atomic_index": 6,
+      "video_seconds_approx": 787.372,
+      "knowledge_selected": true,
+      "knowledge_adopted": true,
+      "behavior_changed": false,
+      "retrieval_reason": "The held cup is being set aside to keep blocks exposed. The clear, supported placement approached from above with clearance and preserved attachment orientation best realizes the set-aside knowledge while maintaining the required placement region and workspace clearance.",
+      "original_event_file": "rollouts/20261001/210736/logs/events.jsonl",
+      "provenance": [
+        {
+          "kind": "sim",
+          "archive": "sim_sources/cover_blocks/cover_blocks_knowledge_20260918.zip",
+          "member": "cover_blocks_source/action_knowledge.jsonl",
+          "line": 4
+        },
+        {
+          "kind": "maintained_checkpoint",
+          "knowledge_file": "rollouts/20260924/195945/knowledge/rsi_checkpoints/26a46572dc69cf41c26843f74646fdf2e409ef056705b9f18df11083dfec7767/store/action_knowledge.jsonl",
+          "line": 7,
+          "consolidation_inputs": [],
+          "note": "parent and episode may both contribute; not an additive episode-only delta"
+        },
+        {
+          "kind": "maintained_checkpoint",
+          "knowledge_file": "rollouts/20261001/133133/knowledge/rsi_checkpoints/b190ae593d9d322610daf33b88109cff201dbb4d18ed5e1eb306c0db60dee182/store/action_knowledge.jsonl",
+          "line": 7,
+          "consolidation_inputs": [],
+          "note": "parent and episode may both contribute; not an additive episode-only delta"
+        }
+      ]
+    },
+    {
+      "event": "afk_v3_subtask_usage",
+      "source_line": 160,
+      "layer": "task",
+      "selected_atomic_index": 8,
+      "video_seconds_approx": 1593.806,
+      "knowledge_selected": true,
+      "knowledge_adopted": true,
+      "behavior_changed": true,
+      "retrieval_reason": "The reusable strategy matches the first of two required count presses: perform one distinct depression and release, verify clearance, and await confirmation before the second press. Grounding preserves the current right arm assignment, closed gripper, and completed approach.",
+      "original_event_file": "rollouts/20261001/210736/logs/events.jsonl",
+      "provenance": [
+        {
+          "kind": "maintained_checkpoint",
+          "knowledge_file": "rollouts/20261001/133133/knowledge/rsi_checkpoints/b190ae593d9d322610daf33b88109cff201dbb4d18ed5e1eb306c0db60dee182/store/task_knowledge.jsonl",
+          "line": 9,
+          "consolidation_inputs": [
+            {
+              "origin": "episode",
+              "index": 0
+            }
+          ],
+          "note": "parent and episode may both contribute; not an additive episode-only delta"
+        }
+      ]
+    },
+    {
+      "event": "afk_v3_subtask_usage",
+      "source_line": 201,
+      "layer": "task",
+      "selected_atomic_index": 9,
+      "video_seconds_approx": 1875.592,
+      "knowledge_selected": true,
+      "knowledge_adopted": true,
+      "behavior_changed": true,
+      "retrieval_reason": "The strategy completes a two press count with a distinct second depression, release, withdrawal, and verification before advancing to the next count target. It applies to the red phase while preserving the already verified first press and current arm bindings.",
+      "original_event_file": "rollouts/20261001/210736/logs/events.jsonl",
+      "provenance": [
+        {
+          "kind": "maintained_checkpoint",
+          "knowledge_file": "rollouts/20261001/133133/knowledge/rsi_checkpoints/b190ae593d9d322610daf33b88109cff201dbb4d18ed5e1eb306c0db60dee182/store/task_knowledge.jsonl",
+          "line": 10,
+          "consolidation_inputs": [
+            {
+              "origin": "episode",
+              "index": 1
+            }
+          ],
+          "note": "parent and episode may both contribute; not an additive episode-only delta"
+        }
+      ]
+    }
+  ]
+}

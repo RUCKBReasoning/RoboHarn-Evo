@@ -1,0 +1,377 @@
+{
+  "title": "Three tasks. One growing memory.",
+  "duration": 110.0,
+  "fps": 24,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "language": "en",
+  "audio": "Silent. No music or narration.",
+  "evidence": "Editorial summaries of saved events. Retrieval graphics are not live telemetry.",
+  "scenes": [
+    {
+      "kind": "hook",
+      "start": 0,
+      "end": 6,
+      "duration": 6,
+      "title": "Experience should travel."
+    },
+    {
+      "kind": "concept",
+      "start": 6,
+      "end": 12,
+      "duration": 6,
+      "title": "Two levels. One memory."
+    },
+    {
+      "kind": "footage",
+      "start": 12,
+      "end": 18,
+      "duration": 6,
+      "task": 1,
+      "cut": [
+        33,
+        51
+      ],
+      "title": "01 / Cover blocks",
+      "action": "Cover red",
+      "tag": "SIMULATION \u2192 REAL WORLD",
+      "rule": "Use cover knowledge to guide the first real task.",
+      "origin": "Cover simulation library",
+      "count": "6 Task  /  4 Action",
+      "note": "Earlier planner-only ICL implementation.",
+      "caption": "Start with simulation knowledge. Act in the physical world.",
+      "sourceRun": "20260924/195945",
+      "sourceStart": 382.999,
+      "sourceEnd": 436.999,
+      "playbackSpeed": 9.0
+    },
+    {
+      "kind": "footage",
+      "start": 18,
+      "end": 24,
+      "duration": 6,
+      "task": 1,
+      "cut": [
+        94,
+        112
+      ],
+      "title": "01 / Cover blocks",
+      "action": "Cover green",
+      "tag": "PHYSICAL EXPERIENCE",
+      "rule": "Ground the next covering action in the current scene.",
+      "origin": "Cover simulation library",
+      "count": "6 Task  /  4 Action",
+      "note": "Knowledge supplied to the planner; no modern adoption trace.",
+      "caption": "Record what the robot did \u2014 and what physically happened.",
+      "sourceRun": "20260924/195945",
+      "sourceStart": 928.0,
+      "sourceEnd": 982.0,
+      "playbackSpeed": 9.0
+    },
+    {
+      "kind": "footage",
+      "start": 24,
+      "end": 30,
+      "duration": 6,
+      "task": 1,
+      "cut": [
+        165,
+        183
+      ],
+      "title": "01 / Cover blocks",
+      "action": "Cover blue",
+      "tag": "PHYSICAL EXPERIENCE",
+      "rule": "Complete the ordered covering task.",
+      "origin": "Task 1 recorded trajectory",
+      "count": "6 Task  /  4 Action",
+      "note": "Task 1 outcome: automatically verified success.",
+      "caption": "The trajectory becomes evidence for knowledge maintenance.",
+      "sourceRun": "20260924/195945",
+      "sourceStart": 1434.001,
+      "sourceEnd": 1488.001,
+      "playbackSpeed": 9.0
+    },
+    {
+      "kind": "maintain",
+      "start": 30,
+      "end": 36,
+      "duration": 6,
+      "stage": 1,
+      "title": "Experience becomes memory.",
+      "count": [
+        12,
+        13
+      ],
+      "caption": "Cover + press simulation priors are maintained with Task 1 experience."
+    },
+    {
+      "kind": "footage",
+      "start": 36,
+      "end": 40.5,
+      "duration": 4.5,
+      "task": 2,
+      "cut": [
+        13,
+        26.5
+      ],
+      "title": "02 / Press by number",
+      "action": "Green \u00b7 press 1 of 2",
+      "tag": "TASK KNOWLEDGE",
+      "rule": "Finish the left count before moving to the right count.",
+      "origin": "Task 2 input store",
+      "count": "12 Task  /  13 Action",
+      "note": "Recorded Task retrieval \u00b7 events line 10.",
+      "caption": "A different task. The same growing knowledge system.",
+      "sourceRun": "20261001/133133",
+      "sourceStart": 241,
+      "sourceEnd": 281.5,
+      "playbackSpeed": 9.0
+    },
+    {
+      "kind": "footage",
+      "start": 40.5,
+      "end": 45.0,
+      "duration": 4.5,
+      "task": 2,
+      "cut": [
+        39,
+        52.5
+      ],
+      "title": "02 / Press by number",
+      "action": "Green \u00b7 press 2 of 2",
+      "tag": "TASK KNOWLEDGE",
+      "rule": "One distinct press, release, and verification per count.",
+      "origin": "Task 2 recorded decisions",
+      "count": "12 Task  /  13 Action",
+      "note": "Recorded Task retrieval \u00b7 events line 50.",
+      "caption": "Complete the count before switching targets.",
+      "sourceRun": "20261001/133133",
+      "sourceStart": 480.001,
+      "sourceEnd": 520.501,
+      "playbackSpeed": 9.0
+    },
+    {
+      "kind": "footage",
+      "start": 45.0,
+      "end": 49.0,
+      "duration": 4,
+      "task": 2,
+      "cut": [
+        65,
+        77
+      ],
+      "title": "02 / Press by number",
+      "action": "Blue \u00b7 press 1 of 1",
+      "tag": "ACTION KNOWLEDGE",
+      "rule": "Approach from above. Depress the cap, then release.",
+      "origin": "Task + Action retrieval",
+      "count": "12 Task  /  13 Action",
+      "note": "Task adoption changed the plan; Action adoption did not.",
+      "caption": "Task Knowledge guides the sequence. Action Knowledge supports contact.",
+      "sourceRun": "20261001/133133",
+      "sourceStart": 741.0,
+      "sourceEnd": 777.0,
+      "playbackSpeed": 9.0
+    },
+    {
+      "kind": "footage",
+      "start": 49.0,
+      "end": 53.0,
+      "duration": 4,
+      "task": 2,
+      "cut": [
+        92,
+        104
+      ],
+      "title": "02 / Press by number",
+      "action": "Red \u00b7 confirm",
+      "tag": "EXPERIENCE TO REUSE",
+      "rule": "Confirm after both number entries are complete.",
+      "origin": "Task 2 recorded trajectory",
+      "count": "12 Task  /  13 Action",
+      "note": "Human-confirmed success; automatic run status: interrupted.",
+      "caption": "Maintain the store again, using this new physical experience.",
+      "sourceRun": "20261001/133133",
+      "sourceStart": 979.0,
+      "sourceEnd": 1015.0,
+      "playbackSpeed": 9.0
+    },
+    {
+      "kind": "maintain",
+      "start": 53.0,
+      "end": 58.0,
+      "duration": 5,
+      "stage": 2,
+      "title": "Carry the strategy forward.",
+      "count": [
+        16,
+        16
+      ],
+      "caption": "The maintained store now becomes the input to a composed task."
+    },
+    {
+      "kind": "footage",
+      "start": 58.0,
+      "end": 62.0,
+      "duration": 4,
+      "task": 3,
+      "cut": [
+        21,
+        28
+      ],
+      "title": "03 / Uncover, count & press",
+      "action": "Reveal the blocks",
+      "tag": "COMPOSITIONAL REUSE",
+      "rule": "Reveal the objects before counting them.",
+      "origin": "Simulation + Tasks 1 and 2",
+      "count": "16 Task  /  16 Action",
+      "note": "The current task combines cup manipulation with counting and pressing.",
+      "caption": "Now combine the skills: uncover, count, and press.",
+      "sourceRun": "20261001/210736",
+      "sourceStart": 461.0,
+      "sourceEnd": 482.0,
+      "playbackSpeed": 5.25
+    },
+    {
+      "kind": "footage",
+      "start": 62.0,
+      "end": 68.0,
+      "duration": 6,
+      "task": 3,
+      "cut": [
+        28,
+        43
+      ],
+      "title": "03 / Uncover, count & press",
+      "action": "Set the cup aside",
+      "tag": "ACTION KNOWLEDGE \u00b7 #6",
+      "rule": "Choose a supported placement, approached from above, with clearance.",
+      "origin": "Simulation \u2192 maintained stores",
+      "count": "16 Task  /  16 Action",
+      "note": "Adopted: yes \u00b7 Behavior changed: no. Content also exists in simulation.",
+      "caption": "Retrieve placement knowledge that already applies to this scene.",
+      "sourceRun": "20261001/210736",
+      "sourceStart": 787.0,
+      "sourceEnd": 832.0,
+      "playbackSpeed": 7.5
+    },
+    {
+      "kind": "count",
+      "start": 68.0,
+      "end": 71.0,
+      "duration": 3,
+      "title": "The next goal is different.",
+      "caption": "The revealed blocks require red \u00d72, green \u00d71, and blue \u00d71."
+    },
+    {
+      "kind": "retrieve",
+      "start": 71.0,
+      "end": 81.0,
+      "duration": 10,
+      "title": "A past task enters the current plan.",
+      "caption": "Task 3 retrieves a strategy maintained from Task 2."
+    },
+    {
+      "kind": "footage",
+      "start": 81.0,
+      "end": 87.0,
+      "duration": 6,
+      "task": 3,
+      "cut": [
+        69,
+        87
+      ],
+      "title": "03 / Reuse in the current task",
+      "action": "Red \u00b7 press 1 of 2",
+      "tag": "TASK KNOWLEDGE \u00b7 #8",
+      "rule": "Depress once. Release. Verify before the next press.",
+      "origin": "Task 2 maintenance \u2192 Task 3",
+      "count": "RETRIEVED  \u2192  ADOPTED",
+      "note": "Task behavior changed: yes \u00b7 events line 160.",
+      "caption": "Different scene. Reusable strategy. Grounded in the current goal.",
+      "sourceRun": "20261001/210736",
+      "sourceStart": 1689.001,
+      "sourceEnd": 1743.001,
+      "playbackSpeed": 9.0
+    },
+    {
+      "kind": "footage",
+      "start": 87.0,
+      "end": 93.0,
+      "duration": 6,
+      "task": 3,
+      "cut": [
+        89,
+        105
+      ],
+      "title": "03 / Reuse in the current task",
+      "action": "Red \u00b7 press 2 of 2",
+      "tag": "TASK KNOWLEDGE \u00b7 #9",
+      "rule": "Verify the second distinct press before advancing to green.",
+      "origin": "Task 2 maintenance \u2192 Task 3",
+      "count": "RETRIEVED  \u2192  ADOPTED",
+      "note": "Task behavior changed: yes \u00b7 events line 201.",
+      "caption": "The second retrieved strategy completes the two-press sequence.",
+      "sourceRun": "20261001/210736",
+      "sourceStart": 1945.0,
+      "sourceEnd": 1993.0,
+      "playbackSpeed": 8.0
+    },
+    {
+      "kind": "footage",
+      "start": 93.0,
+      "end": 97.0,
+      "duration": 4,
+      "task": 3,
+      "cut": [
+        129,
+        141
+      ],
+      "title": "03 / Reuse in the current task",
+      "action": "Green \u00b7 press and release",
+      "tag": "ACTION KNOWLEDGE \u00b7 #7",
+      "rule": "Refresh the target geometry; approach along its surface normal.",
+      "origin": "Parent entries maintained with Task 2",
+      "count": "RETRIEVED  \u2192  ADOPTED",
+      "note": "Green physical effect verified. Action behavior changed: no.",
+      "caption": "Reuse the knowledge. Re-ground the geometry.",
+      "sourceRun": "20261001/210736",
+      "sourceStart": 2653.001,
+      "sourceEnd": 2689.001,
+      "playbackSpeed": 9.0
+    },
+    {
+      "kind": "footage",
+      "start": 97.0,
+      "end": 101.0,
+      "duration": 4,
+      "task": 3,
+      "cut": [
+        145,
+        157
+      ],
+      "title": "03 / Check the physical evidence",
+      "action": "Blue \u00b7 contact",
+      "tag": "EVIDENCE HAS LIMITS",
+      "rule": "Keep uncertain physical outcomes visible.",
+      "origin": "Task 3 verification record",
+      "count": "BLUE EFFECT: UNCONFIRMED",
+      "note": "Overall task human-confirmed; blue actuation not verified automatically.",
+      "caption": "An uncertain blue-button effect stays uncertain in the automatic record.",
+      "sourceRun": "20261001/210736",
+      "sourceStart": 2916.001,
+      "sourceEnd": 2952.001,
+      "playbackSpeed": 9.0
+    },
+    {
+      "kind": "outro",
+      "start": 101.0,
+      "end": 110.0,
+      "duration": 9,
+      "title": "RoboHarn-Evo",
+      "caption": "Turn physical experience into reusable knowledge."
+    }
+  ]
+}

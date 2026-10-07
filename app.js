@@ -216,4 +216,4 @@ const sectionObserver = new IntersectionObserver(entries => entries.forEach(entr
     else link.removeAttribute('aria-current');
   });
 }), {rootMargin:'-15% 0px -55% 0px'});
-['top','overview','demos','method','results','citation'].forEach(id => sectionObserver.observe(document.getElementById(id)));
+['top','story','overview','demos','method','results','citation'].forEach(id => sectionObserver.observe(document.getElementById(id)));
