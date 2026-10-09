@@ -14,7 +14,8 @@
       "start": 0,
       "end": 6,
       "duration": 6,
-      "title": "Experience should travel."
+      "title": "Experience should travel.",
+      "caption": "Can experience from one task help solve the next?"
     },
     {
       "kind": "concept",
@@ -371,6 +372,81 @@
       "duration": 9,
       "title": "RoboHarn-Evo",
       "caption": "Turn physical experience into reusable knowledge."
+    }
+  ],
+  "openingPreviews": [
+    {
+      "task": 1,
+      "reveal": 0.15,
+      "shots": [
+        [
+          33,
+          45,
+          2
+        ],
+        [
+          94,
+          106,
+          2
+        ],
+        [
+          165,
+          177,
+          2
+        ]
+      ]
+    },
+    {
+      "task": 2,
+      "reveal": 0.85,
+      "shots": [
+        [
+          13,
+          22,
+          1.5
+        ],
+        [
+          39,
+          48,
+          1.5
+        ],
+        [
+          65,
+          74,
+          1.5
+        ],
+        [
+          92,
+          101,
+          1.5
+        ]
+      ]
+    },
+    {
+      "task": 3,
+      "reveal": 1.55,
+      "shots": [
+        [
+          21,
+          28,
+          1.5
+        ],
+        [
+          29,
+          38,
+          1.5
+        ],
+        [
+          71,
+          80,
+          1.5
+        ],
+        [
+          129,
+          138,
+          1.5
+        ]
+      ]
     }
   ]
 }
