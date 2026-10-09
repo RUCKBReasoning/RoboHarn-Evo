@@ -11,17 +11,20 @@
   <link rel="icon" href="assets/favicon.svg?v=341991213f79" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=7233ce3fc8ba">
   <link rel="stylesheet" href="story.css?v=3d8a1147e90f">
-  <script src="media-data.js?v=c56fab80ee4a" defer></script>
+  <link rel="stylesheet" href="refresh.css?v=fa4e1625fb04">
+  <script src="media-data.js?v=349533faeef3" defer></script>
   <script src="results-data.js?v=28bd8cda13a9" defer></script>
-  <script src="app.js?v=3f569d790a73" defer></script>
-  <script src="story.js?v=be5592ba9e02" defer></script>
+  <script src="hero-data.js?v=12f74454a1ae" defer></script>
+  <script src="reasoning-data.js?v=86f111ace51e" defer></script>
+  <script src="app.js?v=71d509b0005e" defer></script>
+  <script src="story.js?v=1f93c83bfc1e" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <a class="wordmark" href="#top"><span class="brand-symbol" aria-hidden="true">R<span>e</span></span> RoboHarn-Evo</a>
     <nav aria-label="Main navigation">
-      <a href="#story">Knowledge reuse</a><a href="#demos">Demonstrations</a><a href="#method">Method</a><a href="#results">Results</a>
+      <a href="#method">Method</a><a href="#results">Results</a><a href="#story">Knowledge reuse</a><a href="#demos">Demonstrations</a>
     </nav>
     <a class="header-paper" href="assets/RoboHarn-Evo.pdf" target="_blank" rel="noopener">Read paper <span class="small-tag">PDF</span></a>
   </header>
@@ -29,13 +32,17 @@
   <main id="main">
     <section class="hero hero-cinematic" id="top" aria-labelledby="title">
       <div class="hero-backdrop">
-        <video id="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/task-3.jpg?v=cf9dcf575009" aria-label="Edited overview of real robot uncovering, covering, and button pressing at three times recorded speed"><source src="assets/videos/overview.mp4?v=692747b4a258" type="video/mp4"></video>
+        <video id="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/hero-task3.jpg?v=aacd8f46f4eb" aria-label="Task 3: uncover, count and press. Actions at 5 times speed; waiting at 50 times speed."><source src="assets/videos/hero-task3.mp4?v=f3e2feab59ac" type="video/mp4"></video>
       </div>
       <div class="hero-copy">
-        <div class="eyebrow"><span class="short-rule"></span> ROBOT LEARNING · 2026</div>
         <h1 id="title">RoboHarn<span class="evo">-Evo</span></h1>
         <p class="paper-title">Evolving Hierarchical Physical Knowledge for Self-Improving Robotic Manipulation</p>
         <p class="hero-description">Turn physical experience into reusable knowledge.</p>
+    <section class="authors hero-authors" id="authors" aria-label="Authors and affiliations">
+      <p class="author-names"><span>Shifeng Bao<sup>1,3*</sup></span> <span>Fanding Huang<sup>2*</sup></span> <span>Yihan Lin<sup>1,3</sup></span> <span>Youhe Feng<sup>1,3</sup></span> <span>Guanlin Li<sup>1,3</sup></span><span>Chen Zhao<sup>1,3</sup></span> <span>Yang Li<sup>1,3</sup></span> <span>Jiawei He<sup>5</sup></span> <span>Cheng Chi<sup>1,4‡</sup></span> <span>Jing Zhang<sup>1,4†</sup></span></p>
+      <p class="affiliations"><span><sup>1</sup> Renmin University of China</span><span><sup>2</sup> Tsinghua University</span></p>
+      <details class="affiliation-details"><summary>Full affiliations & contributions</summary><p><sup>1</sup> School of Information, Renmin University of China<br><sup>2</sup> Tsinghua University<br><sup>3</sup> Key Laboratory of Data Engineering and Knowledge Engineering, Beijing, China<br><sup>4</sup> Engineering Research Center of Database and Business Intelligence, Beijing, China<br><sup>5</sup> XYZ Embodied AI, Beijing, China</p><p>* Equal contribution · † Corresponding author · ‡ Project leader</p></details>
+    </section>
         <div class="hero-actions">
           <a class="button primary" href="#story">▶ Watch overview <span>1:50</span></a>
           <a class="button primary" href="assets/RoboHarn-Evo.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2h7l4 4v12H5zM12 2v5h4M8 11h5M8 14h5"/></svg> Paper</a>
@@ -44,24 +51,48 @@
         </div>
       </div>
       <div class="hero-bottom">
-        <span class="hero-footage-note">AGILEX COBOT MAGIC <span>REAL ROBOT · EDITED · 3×</span></span>
-        <a class="hero-scroll" href="#authors">SCROLL TO EXPLORE<span aria-hidden="true"></span></a>
+        <span class="hero-footage-note">TASK 3 · UNCOVER, COUNT &amp; PRESS <span id="hero-speed">ACTIONS 5× · WAITING 50×</span></span>
+        <a class="hero-scroll" href="#overview">SCROLL TO EXPLORE<span aria-hidden="true"></span></a>
         <button id="hero-toggle" class="hero-pause" aria-label="Pause overview video"><span aria-hidden="true">Ⅱ</span><span class="hero-toggle-label">Pause video</span></button>
       </div>
     </section>
 
-    <section class="authors wrap" id="authors" aria-label="Authors and affiliations">
-      <p class="author-names">Shifeng Bao<sup>1,3*</sup> <span>Fanding Huang<sup>2*</sup></span> <span>Yihan Lin<sup>1,3</sup></span> <span>Youhe Feng<sup>1,3</sup></span> <span>Guanlin Li<sup>1,3</sup></span><br>
-      Chen Zhao<sup>1,3</sup> <span>Yang Li<sup>1,3</sup></span> <span>Jiawei He<sup>5</sup></span> <span>Cheng Chi<sup>1,4‡</sup></span> <span>Jing Zhang<sup>1,4†</sup></span></p>
-      <p class="affiliations"><span><sup>1</sup> Renmin University of China</span><span><sup>2</sup> Tsinghua University</span></p>
-      <details class="affiliation-details"><summary>Full affiliations & contributions</summary><p><sup>1</sup> School of Information, Renmin University of China<br><sup>2</sup> Tsinghua University<br><sup>3</sup> Key Laboratory of Data Engineering and Knowledge Engineering, Beijing, China<br><sup>4</sup> Engineering Research Center of Database and Business Intelligence, Beijing, China<br><sup>5</sup> XYZ Embodied AI, Beijing, China</p><p>* Equal contribution · † Corresponding author · ‡ Project leader</p></details>
-    </section>
+
 
     <div class="metrics wrap" aria-label="Key paper results">
       <div><span class="metric-number">+24.2<span>pp</span></span><p>RMBench success gain</p><span class="metric-note">Full HPK vs. no HPK · GPT-5.5</span></div>
       <div><span class="metric-number">48.3<span> → </span>75.0<span>%</span></span><p>Improvement through interaction</p><span class="metric-note">0 to 80 learning rollouts · GPT-5.5</span></div>
       <div><span class="metric-number">41.7<span> → </span>62.5<span>%</span></span><p>Real-world success</p><span class="metric-note">Simulation knowledge → after real-world RSI</span></div>
     </div>
+
+
+
+    <section id="overview" class="section wrap overview">
+      <div><span class="eyebrow">THE IDEA</span><h2>Experience should change<br><em>what a robot knows.</em></h2></div>
+      <div class="overview-body"><p>Good task reasoning only works when physical actions produce the intended effects. A successful grasp, for example, does not mean the object has been placed correctly.</p><p>RoboHarn-Evo turns interaction into <strong>Hierarchical Physical Knowledge (HPK)</strong>: Task Knowledge guides which subtask to execute and when it is complete; Action Knowledge guides object-relative geometry and physical effects. A dual-loop harness retrieves this knowledge during execution, then revises it using evidence across episodes.</p><details><summary>Read the abstract</summary><p>Vision-language models can coordinate long-horizon robot manipulation, yet successful task reasoning still depends on whether local physical interactions produce the intended effects. We study how repeated interaction can improve this capability without updating the base model. We introduce RoboHarn-Evo, a dual-loop harness that evolves Hierarchical Physical Knowledge (HPK) from physical experience. HPK couples two levels of reusable knowledge: Task Knowledge captures which subtask should be executed and when it is complete, while Action Knowledge captures object-relative geometric strategies and their physical effects. During execution, the agent retrieves knowledge at the corresponding decision level and grounds it in the current scene under the task goal. Across episodes, physical feedback is used to revise historical knowledge, update its applicability, and organize reusable entries for subsequent retrieval. Experiments on RMBench show that HPK improves average success by up to 24.2 percentage points across different agent models. With 80 interaction rollouts, held-out success rises from 48.3% to 75.0% for GPT-5.5 and from 70.0% to 88.3% for GPT-6. RoboHarn-Evo also resolves over 83% of historical knowledge errors while retaining 95.8% of valid knowledge, and transfers zero-shot from RMBench to RoboDojo with gains of 35.0 and 25.0 percentage points. These results demonstrate that physical interaction can be accumulated into reusable knowledge for improving subsequent manipulation.</p></details></div>
+    </section>
+
+
+
+    <section class="section wrap method-section" id="method" aria-labelledby="method-heading">
+      <div class="section-heading"><div><span class="eyebrow">01 / THE METHOD</span><h2 id="method-heading">Two levels of knowledge.<br><em>Two loops of improvement.</em></h2></div><p>The VLM and low-level executor stay fixed.<br>Experience changes the knowledge they use.</p></div>
+      <div class="knowledge-pair"><article><span class="knowledge-icon">T</span><div><span class="small-label">TASK KNOWLEDGE</span><h3>What to do. When it is done.</h3><p>Subtask selection, goals, ordering, and completion conditions.</p><blockquote>Finish the required press count before switching to the next color.</blockquote></div></article><article><span class="knowledge-icon action-icon">A</span><div><span class="small-label">ACTION KNOWLEDGE</span><h3>How to make it happen.</h3><p>Object-relative geometry, interaction strategies, and physical effects.</p><blockquote>Approach from above, press once, release, and verify the effect.</blockquote></div></article></div>
+      <p class="figure-note">Illustrative summaries of the knowledge schema; motion targets are grounded in the current scene.</p>
+      <div class="loop-diagram"><div class="loop-label"><span>INNER LOOP</span><strong>Use knowledge during execution</strong></div><ol><li><span>01</span>Observe the scene</li><li><span>02</span>Retrieve Task Knowledge</li><li><span>03</span>Ground with Action Knowledge</li><li><span>04</span>Execute & check effects</li></ol><div class="loop-return"><span>OUTER LOOP</span><p>Physical evidence <b>→</b> Reflect <b>→</b> Verify & consolidate <b>→</b> Update knowledge for later episodes</p></div></div>
+      <figure class="paper-figure"><button class="figure-expand" data-figure="assets/images/method.webp" data-title="RoboHarn-Evo: inner execution loop and outer knowledge evolution loop" aria-label="Expand method figure"><img src="assets/images/method.webp?v=e697a5bc6b92" loading="lazy" width="2200" height="1206" alt="Paper architecture: observations feed task planning, action grounding, execution and effect checking; recorded episodes are reflected into skill-indexed Task and Action Knowledge."><span>View full figure</span></button><figcaption>The dual-loop harness. Local physical effects and subtask completion are checked separately.</figcaption></figure>
+      <details class="method-details"><summary>Skill-routed retrieval & evidence-driven maintenance</summary><p>Skill summaries route queries to related entries. The agent selects applicable atomic knowledge, while task goals constrain action grounding. Across episodes, observed outcomes support, oppose, or leave a claim unverified. Maintenance merges equivalent entries and revises their applicability using the physical evidence.</p><img src="assets/images/knowledge.webp?v=9ba38dda9973" loading="lazy" alt="Skill-routed retrieval and evidence-driven maintenance from the paper."></details>
+    </section>
+
+    <section class="results-section" id="results" aria-labelledby="results-heading"><div class="wrap">
+      <div class="section-heading"><div><span class="eyebrow">02 / THE EVIDENCE</span><h2 id="results-heading">Better knowledge.<br><em>Better manipulation.</em></h2></div><p>Matched within-model comparisons, frozen held-out<br>evaluations, and transfer to new environments.</p></div>
+      <div class="result-block"><div class="result-intro"><span class="small-label">RMBENCH · SIX TASKS</span><h3>HPK improves different backbones.</h3><p>Compare the same harness and executor with and without Hierarchical Physical Knowledge.</p></div><div class="segmented" role="group" aria-label="Model for RMBench results"><button data-model="Qwen3.8-27B" aria-pressed="false">Qwen3.8-27B</button><button data-model="GPT-5.5" aria-pressed="true">GPT-5.5</button><button data-model="GPT-6" aria-pressed="false">GPT-6</button></div>
+        <div class="benchmark-layout"><div><div class="chart-legend"><span class="legend-base">Without HPK</span><span class="legend-full">Full HPK</span><span>SUCCESS RATE (%)</span></div><div id="benchmark-bars" aria-label="RMBench task success comparison"></div></div><aside class="benchmark-stat" aria-live="polite"><span class="small-label" id="model-label">GPT-5.5 · SIX-TASK MEAN</span><div><span id="mean-base">58.3</span><span class="mean-arrow">→</span><strong id="mean-full">82.5<span>%</span></strong></div><p><strong id="mean-gain">+24.2 pp</strong> with Full HPK</p><small>20 held-out episodes per task.<br>Same executor within each model.</small></aside></div>
+        <details><summary>View values as a table</summary><div class="table-scroll"><table><caption>RMBench task success rates (%) · <span id="table-model">GPT-5.5</span></caption><thead><tr><th scope="col">Task</th><th scope="col">Without HPK</th><th scope="col">Full HPK</th><th scope="col">Gain (pp)</th></tr></thead><tbody id="benchmark-table"></tbody></table></div></details>
+      </div>
+      <div class="result-columns"><article class="learning-block"><span class="small-label">CONTINUED INTERACTION</span><h3>Learning without weight updates.</h3><div class="chart-legend"><span class="legend-full">GPT-5.5</span><span class="legend-rose">GPT-6</span></div><div id="learning-chart"></div><p>Mean held-out success over three learning histories. Knowledge snapshots are frozen at evaluation; evaluation feedback is excluded from updates.</p><details><summary>View checkpoints & variability</summary><div class="table-scroll"><table><caption>Mean success ± sample standard deviation (%)</caption><thead><tr><th>K rollouts</th><th>GPT-5.5</th><th>GPT-6</th></tr></thead><tbody id="learning-table"></tbody></table></div></details></article>
+      <article class="retention-block"><span class="small-label">KNOWLEDGE MAINTENANCE</span><h3>Revise errors. Retain what works.</h3><div class="retention-stat"><strong>95.8<span>%</span></strong><p>of initially correct knowledge retained<br><span>23 / 24 entries · both models</span></p></div><div class="error-row"><span>Initial errors resolved</span><strong>83.3% <small>GPT-5.5</small></strong><strong>91.7% <small>GPT-6</small></strong></div><p>After 80 source rollouts, 10/12 and 11/12 initial errors are repaired or deactivated. Knowledge quality is assessed by an external GPT-6 judge using recorded observations and execution evidence.</p></article></div>
+      <div class="transfer-block"><div><span class="small-label">SIMULATION → REAL WORLD</span><h3>Physical experience transfers.</h3><p>On three real-world tasks, further knowledge updates raise mean success from <strong>41.7% to 62.5%</strong>, and normalized task progress from <strong>70.5% to 84.2%</strong>.</p><p class="figure-note">Paper evaluation: eight scenes per task. Full task completion counts as success. These aggregate results are separate from the three demonstrations below.</p><div class="transfer-mini"><span>RMBench → RoboDojo<br><small>Zero-shot success gain with frozen source knowledge</small></span><strong>+35.0<small>pp · GPT-5.5</small></strong><strong>+25.0<small>pp · GPT-6</small></strong></div></div><figure><button class="figure-expand" data-figure="assets/images/real-results.webp" data-title="Real-world success and normalized task progress" aria-label="Expand real-world results figure"><img src="assets/images/real-results.webp?v=da95885c8166" loading="lazy" width="1800" height="1488" alt="Real-world success: zero-shot to after RSI, 37.5 to 62.5 for cover; 62.5 to 87.5 for press; 25 to 37.5 for uncover, count and press. Pi 0.5 scores zero on all three."><span>View full figure</span></button><figcaption>Real-world evaluation reported in the paper.</figcaption></figure></div>
+    </div></section>
 
     <section id="story" class="story-section" aria-labelledby="story-heading">
       <div class="wrap">
@@ -70,11 +101,11 @@
           <p>Cover. Press. Then compose.<br>Follow physical experience into the knowledge<br class="story-desktop-break"> a later task retrieves.</p>
         </div>
         <div class="story-cinema">
-          <div class="story-player-bar"><span><i aria-hidden="true"></i> ROBOHARN-EVO / CROSS-TASK DEMONSTRATION</span><a href="assets/videos/rsi-story.mp4?v=7894deee7e9e" download>Download video ↗</a></div>
+          <div class="story-player-bar"><span><i aria-hidden="true"></i> ROBOHARN-EVO / CROSS-TASK DEMONSTRATION</span><a href="assets/videos/rsi-story.mp4?v=dce75da0a5bb" download>Download video ↗</a></div>
           <video id="story-video" controls playsinline preload="none" poster="assets/images/story-poster.jpg?v=9033165dd6b1" aria-label="Three tasks. One growing memory. A 110-second demonstration showing experience accumulation and cross-task knowledge retrieval.">
-            <source src="assets/videos/rsi-story.mp4?v=7894deee7e9e" type="video/mp4">
+            <source src="assets/videos/rsi-story.mp4?v=dce75da0a5bb" type="video/mp4">
             <track kind="captions" src="assets/story-captions.vtt" srclang="en" label="English">
-            <a href="assets/videos/rsi-story.mp4?v=7894deee7e9e">Watch the RSI demonstration</a>
+            <a href="assets/videos/rsi-story.mp4?v=dce75da0a5bb">Watch the RSI demonstration</a>
           </video>
           <div class="story-chapters" role="group" aria-label="Video chapters">
             <button data-story-time="0"><span>00:00</span>The idea</button>
@@ -96,22 +127,17 @@
             <button class="memory-node" data-memory="compose" aria-pressed="false"><span class="memory-index">03 / RETRIEVE</span><strong>Uncover, count & press</strong><span>Reuse in a new task</span><small>Two knowledge levels, one goal</small></button>
           </div>
           <div class="memory-inspector">
-            <div class="memory-inspector-copy" aria-live="polite" aria-atomic="true"><span class="memory-kicker" id="memory-kicker">SIMULATION / STARTING KNOWLEDGE</span><h4 id="memory-title">Experience has a starting point.</h4><p id="memory-description">The cover and press simulation libraries contain 9 Task and 7 Action entries in total. Task 1 uses only the cover library (6 Task / 4 Action) through the earlier planner-only ICL implementation.</p><p class="memory-provenance" id="memory-provenance">The combined simulation pool and Task 1 experience are maintained into the input store for Task 2.</p></div>
+            <div class="memory-inspector-copy" aria-live="polite" aria-atomic="true"><span class="memory-kicker" id="memory-kicker">SIMULATION / STARTING KNOWLEDGE</span><h4 id="memory-title">Experience has a starting point.</h4><p id="memory-description">The cover and press simulation libraries contain 9 Task and 7 Action entries in total. Task 1 uses only the cover library (6 Task / 4 Action).</p><p class="memory-provenance" id="memory-provenance">The combined simulation pool and Task 1 experience are maintained into the input store for Task 2.</p></div>
             <div class="memory-proof"><span class="small-label">RETRIEVAL SPOTLIGHT / TASK 3</span><div class="memory-proof-tabs" role="group" aria-label="Inspect retrieval examples"><button data-evidence="task8" aria-pressed="false">Task #8</button><button data-evidence="task9" aria-pressed="false">Task #9</button><button data-evidence="action6" aria-pressed="false">Action #6</button></div><p id="memory-proof-text">Select an example to see how earlier knowledge helps with the current task.</p></div>
           </div>
         </div>
-        <details class="story-evidence-note"><summary>About this demonstration</summary><p>Knowledge counts describe maintained stores, not additive episode deltas.</p><p>Task 1 used earlier planner-only ICL. Tasks 2 and 3 used dual-level retrieval. Task #8 and #9 in Task 3 have Task 2 maintenance provenance; Action #6 also exists in simulation knowledge. Adoption and behavior change are reported separately. Tasks 2 and 3 were human-confirmed; the blue-button effect in Task 3 remained unconfirmed automatically. No post-Task-3 knowledge checkpoint is claimed. The three runs illustrate experience reuse, not a controlled success-rate comparison.</p><p>The video is silent, with English text and no background music. All footage is from RoboHarn-Evo. <a href="assets/story-captions.vtt" download>Download English captions</a> · <a href="assets/story-evidence.json">View selected evidence</a></p></details>
+        <p class="story-evidence-note">All three demonstrations passed the task-success check. <a href="assets/story-captions.vtt" download>Download English captions</a></p>
       </div>
-    </section>
-
-    <section id="overview" class="section wrap overview">
-      <div><span class="eyebrow">THE IDEA</span><h2>Experience should change<br><em>what a robot knows.</em></h2></div>
-      <div class="overview-body"><p>Good task reasoning only works when physical actions produce the intended effects. A successful grasp, for example, does not mean the object has been placed correctly.</p><p>RoboHarn-Evo turns interaction into <strong>Hierarchical Physical Knowledge (HPK)</strong>: Task Knowledge guides which subtask to execute and when it is complete; Action Knowledge guides object-relative geometry and physical effects. A dual-loop harness retrieves this knowledge during execution, then revises it using evidence across episodes.</p><details><summary>Read the abstract</summary><p>Vision-language models can coordinate long-horizon robot manipulation, yet successful task reasoning still depends on whether local physical interactions produce the intended effects. We study how repeated interaction can improve this capability without updating the base model. We introduce RoboHarn-Evo, a dual-loop harness that evolves Hierarchical Physical Knowledge (HPK) from physical experience. HPK couples two levels of reusable knowledge: Task Knowledge captures which subtask should be executed and when it is complete, while Action Knowledge captures object-relative geometric strategies and their physical effects. During execution, the agent retrieves knowledge at the corresponding decision level and grounds it in the current scene under the task goal. Across episodes, physical feedback is used to revise historical knowledge, update its applicability, and organize reusable entries for subsequent retrieval. Experiments on RMBench show that HPK improves average success by up to 24.2 percentage points across different agent models. With 80 interaction rollouts, held-out success rises from 48.3% to 75.0% for GPT-5.5 and from 70.0% to 88.3% for GPT-6. RoboHarn-Evo also resolves over 83% of historical knowledge errors while retaining 95.8% of valid knowledge, and transfers zero-shot from RMBench to RoboDojo with gains of 35.0 and 25.0 percentage points. These results demonstrate that physical interaction can be accumulated into reusable knowledge for improving subsequent manipulation.</p></details></div>
     </section>
 
     <section class="demo-section" id="demos" aria-labelledby="demo-heading">
       <div class="wrap">
-        <div class="section-heading"><div><span class="eyebrow">01 / IN THE REAL WORLD</span><h2 id="demo-heading">Knowledge carried forward.</h2></div><p>From simulation priors to real-world experience,<br>then to a composed manipulation task.</p></div>
+        <div class="section-heading"><div><span class="eyebrow">03 / REAL ROBOT DEMONSTRATIONS</span><h2 id="demo-heading">Knowledge carried forward.</h2></div><p>From simulation priors to real-world experience,<br>then to a composed manipulation task.</p></div>
         <div class="task-tabs" role="tablist" aria-label="Real robot demonstrations">
           <button id="task-tab-1" role="tab" aria-selected="false" aria-controls="demo-panel" tabindex="-1" data-task="1"><span class="tab-number">01</span><span>Cover blocks<small>SIMULATION PRIORS</small></span></button>
           <button id="task-tab-2" role="tab" aria-selected="false" aria-controls="demo-panel" tabindex="-1" data-task="2"><span class="tab-number">02</span><span>Press by number<small>ACCUMULATED EXPERIENCE</small></span></button>
@@ -119,45 +145,31 @@
         </div>
         <div class="demo-layout" id="demo-panel" role="tabpanel" aria-labelledby="task-tab-3">
           <div class="demo-screen">
-            <div class="main-video-wrap"><video id="demo-video" controls playsinline preload="metadata" poster="assets/images/task-3.jpg?v=cf9dcf575009" aria-label="Uncover, count and press edited real robot demonstration"><source src="assets/videos/task-3.mp4?v=423029d11330" type="video/mp4"></video><span class="video-label">EDITED EXCERPTS · 3× RECORDED SPEED</span></div>
+            <div class="main-video-wrap"><video id="demo-video" controls playsinline preload="metadata" poster="assets/images/task-3.jpg?v=cf9dcf575009" aria-label="Uncover, count and press edited real robot demonstration"><source src="assets/videos/task-3.mp4?v=423029d11330" type="video/mp4"></video><span class="video-label">3× SPEED</span></div>
             <div class="player-caption"><span id="current-chapter">Grasp the cup</span><span id="source-time">SOURCE 03:30</span></div>
             <div class="chapter-list" id="chapters" aria-label="Video chapters"></div>
-            <p class="edit-note">Waiting intervals are omitted; cuts follow the recorded order. Source times are approximate. Playback speed does not represent system latency.</p>
+            <p class="edit-note">Actions play at 3× speed. Select a chapter to follow its task plan, action and check.</p>
           </div>
           <aside class="demo-context">
             <span class="eyebrow" id="demo-run">ROLLOUT / 2026.10.01</span>
             <h3 id="demo-title">Uncover, count & press</h3>
             <p id="demo-instruction">Lift and set aside the cup, count the exposed blocks, then use the other arm to press the matching buttons in red–green–blue order.</p>
-            <div class="knowledge-count"><div><strong id="task-count">16</strong><span>Task entries</span></div><div><strong id="action-count">16</strong><span>Action entries</span></div></div>
-            <div class="knowledge-note"><span class="small-label">KNOWLEDGE IN USE</span><p id="demo-knowledge">Two levels of knowledge support task sequencing and object-relative physical interaction.</p></div>
-            <div class="outcome"><span class="small-label">RECORDED OUTCOME</span><p id="demo-outcome">Human-confirmed success. Automatic verification of the blue button remains unresolved.</p></div>
+            <div class="reasoning-panel" aria-label="RoboHarn-Evo reasoning synchronized with the demonstration">
+              <div class="reasoning-heading"><span class="small-label">ROBOHARN-EVO / REASONING</span><span id="reasoning-step">01 / 11</span></div>
+              <div class="reasoning-progress" aria-hidden="true"><span id="reasoning-progress"></span></div>
+              <div id="reasoning-content" aria-live="polite" aria-atomic="true">
+                <h4 id="reasoning-title">Grasp the cup</h4>
+                <dl><div><dt>Task plan</dt><dd id="reasoning-plan">Reveal the blocks before counting.</dd></div><div><dt>Action</dt><dd id="reasoning-action">Grasp the covering cup with the left arm.</dd></div><div><dt>Check</dt><dd id="reasoning-check">Establish a grasp before lifting.</dd></div></dl>
+              </div>
+            </div>
+            <div class="demo-success"><span aria-hidden="true">✓</span><p id="demo-outcome">Task success verified.</p></div>
             <a id="download-video" class="video-download" href="assets/videos/task-3.mp4?v=423029d11330" download>Download this edited clip <span>MP4</span></a>
           </aside>
         </div>
         <div class="lineage" aria-label="Recorded knowledge lineage"><div><span class="lineage-step">SIMULATION</span><strong>Cover + press knowledge</strong><small>9 Task / 7 Action entries combined</small></div><span aria-hidden="true">→</span><div><span class="lineage-step">AFTER TASK 1</span><strong>Real experience integrated</strong><small>Task 2 input: 12 Task / 13 Action</small></div><span aria-hidden="true">→</span><div><span class="lineage-step">AFTER TASK 2</span><strong>Reuse in a composed task</strong><small>Task 3 input: 16 Task / 16 Action</small></div></div>
-        <details class="demo-facts"><summary>About these demonstrations and their evidence</summary><p>These are three different recorded tasks illustrating knowledge accumulation and reuse, not a controlled performance comparison. Task 1 used an earlier cover-only planner-ICL implementation (6 Task / 4 Action entries); Tasks 2 and 3 used dual-level retrieval. Task 1 completed automatically. Tasks 2 and 3 were confirmed successful by the operator, while the original runs ended as interrupted. Task 3’s blue-button effect remained unconfirmed by the automatic verifier, and an additional stroke was rejected. These distinctions are retained in the video chapters and outcome labels.</p><p>In Task 3, Task entries 8 and 9 have maintenance provenance from Task 2. Action entry 6 also exists in simulation knowledge; it is not attributed exclusively to Task 1. Action adoption is recorded with behavior_changed=false. No model weights are updated, and no post-Task-3 knowledge checkpoint is claimed. The paper’s real-world success statistics below come from its separate eight-scenes-per-task evaluation.</p><a href="assets/media-manifest.json" target="_blank" rel="noopener">View excerpt source times</a></details>
+        <p class="demo-facts">All three demonstrations passed the task-success check. Task and Action Knowledge carry experience from covering and pressing into the composed task.</p>
       </div>
     </section>
-
-    <section class="section wrap method-section" id="method" aria-labelledby="method-heading">
-      <div class="section-heading"><div><span class="eyebrow">02 / THE METHOD</span><h2 id="method-heading">Two levels of knowledge.<br><em>Two loops of improvement.</em></h2></div><p>The VLM and low-level executor stay fixed.<br>Experience changes the knowledge they use.</p></div>
-      <div class="knowledge-pair"><article><span class="knowledge-icon">T</span><div><span class="small-label">TASK KNOWLEDGE</span><h3>What to do. When it is done.</h3><p>Subtask selection, goals, ordering, and completion conditions.</p><blockquote>Finish the required press count before switching to the next color.</blockquote></div></article><article><span class="knowledge-icon action-icon">A</span><div><span class="small-label">ACTION KNOWLEDGE</span><h3>How to make it happen.</h3><p>Object-relative geometry, interaction strategies, and physical effects.</p><blockquote>Approach from above, press once, release, and verify the effect.</blockquote></div></article></div>
-      <p class="figure-note">Illustrative summaries of the knowledge schema; motion targets are grounded in the current scene.</p>
-      <div class="loop-diagram"><div class="loop-label"><span>INNER LOOP</span><strong>Use knowledge during execution</strong></div><ol><li><span>01</span>Observe the scene</li><li><span>02</span>Retrieve Task Knowledge</li><li><span>03</span>Ground with Action Knowledge</li><li><span>04</span>Execute & check effects</li></ol><div class="loop-return"><span>OUTER LOOP</span><p>Physical evidence <b>→</b> Reflect <b>→</b> Verify & consolidate <b>→</b> Update knowledge for later episodes</p></div></div>
-      <figure class="paper-figure"><button class="figure-expand" data-figure="assets/images/method.webp" data-title="RoboHarn-Evo: inner execution loop and outer knowledge evolution loop" aria-label="Expand method figure"><img src="assets/images/method.webp?v=e697a5bc6b92" loading="lazy" width="2200" height="1206" alt="Paper architecture: observations feed task planning, action grounding, execution and effect checking; recorded episodes are reflected into skill-indexed Task and Action Knowledge."><span>View full figure</span></button><figcaption>The dual-loop harness. Local physical effects and subtask completion are checked separately.</figcaption></figure>
-      <details class="method-details"><summary>Skill-routed retrieval & evidence-driven maintenance</summary><p>Skill summaries route queries to related entries. The agent selects applicable atomic knowledge, while task goals constrain action grounding. Across episodes, observed outcomes support, oppose, or leave a claim unverified. Maintenance merges equivalent entries and revises their applicability using the physical evidence.</p><img src="assets/images/knowledge.webp?v=9ba38dda9973" loading="lazy" alt="Skill-routed retrieval and evidence-driven maintenance from the paper."></details>
-    </section>
-
-    <section class="results-section" id="results" aria-labelledby="results-heading"><div class="wrap">
-      <div class="section-heading"><div><span class="eyebrow">03 / THE EVIDENCE</span><h2 id="results-heading">Better knowledge.<br><em>Better manipulation.</em></h2></div><p>Matched within-model comparisons, frozen held-out<br>evaluations, and transfer to new environments.</p></div>
-      <div class="result-block"><div class="result-intro"><span class="small-label">RMBENCH · SIX TASKS</span><h3>HPK improves different backbones.</h3><p>Compare the same harness and executor with and without Hierarchical Physical Knowledge.</p></div><div class="segmented" role="group" aria-label="Model for RMBench results"><button data-model="Qwen3.8-27B" aria-pressed="false">Qwen3.8-27B</button><button data-model="GPT-5.5" aria-pressed="true">GPT-5.5</button><button data-model="GPT-6" aria-pressed="false">GPT-6</button></div>
-        <div class="benchmark-layout"><div><div class="chart-legend"><span class="legend-base">Without HPK</span><span class="legend-full">Full HPK</span><span>SUCCESS RATE (%)</span></div><div id="benchmark-bars" aria-label="RMBench task success comparison"></div></div><aside class="benchmark-stat" aria-live="polite"><span class="small-label" id="model-label">GPT-5.5 · SIX-TASK MEAN</span><div><span id="mean-base">58.3</span><span class="mean-arrow">→</span><strong id="mean-full">82.5<span>%</span></strong></div><p><strong id="mean-gain">+24.2 pp</strong> with Full HPK</p><small>20 held-out episodes per task.<br>Same executor within each model.</small></aside></div>
-        <details><summary>View values as a table</summary><div class="table-scroll"><table><caption>RMBench task success rates (%) · <span id="table-model">GPT-5.5</span></caption><thead><tr><th scope="col">Task</th><th scope="col">Without HPK</th><th scope="col">Full HPK</th><th scope="col">Gain (pp)</th></tr></thead><tbody id="benchmark-table"></tbody></table></div></details>
-      </div>
-      <div class="result-columns"><article class="learning-block"><span class="small-label">CONTINUED INTERACTION</span><h3>Learning without weight updates.</h3><div class="chart-legend"><span class="legend-full">GPT-5.5</span><span class="legend-rose">GPT-6</span></div><div id="learning-chart"></div><p>Mean held-out success over three learning histories. Knowledge snapshots are frozen at evaluation; evaluation feedback is excluded from updates.</p><details><summary>View checkpoints & variability</summary><div class="table-scroll"><table><caption>Mean success ± sample standard deviation (%)</caption><thead><tr><th>K rollouts</th><th>GPT-5.5</th><th>GPT-6</th></tr></thead><tbody id="learning-table"></tbody></table></div></details></article>
-      <article class="retention-block"><span class="small-label">KNOWLEDGE MAINTENANCE</span><h3>Revise errors. Retain what works.</h3><div class="retention-stat"><strong>95.8<span>%</span></strong><p>of initially correct knowledge retained<br><span>23 / 24 entries · both models</span></p></div><div class="error-row"><span>Initial errors resolved</span><strong>83.3% <small>GPT-5.5</small></strong><strong>91.7% <small>GPT-6</small></strong></div><p>After 80 source rollouts, 10/12 and 11/12 initial errors are repaired or deactivated. Knowledge quality is assessed by an external GPT-6 judge using recorded observations and execution evidence.</p></article></div>
-      <div class="transfer-block"><div><span class="small-label">SIMULATION → REAL WORLD</span><h3>Physical experience transfers.</h3><p>On three real-world tasks, further knowledge updates raise mean success from <strong>41.7% to 62.5%</strong>, and normalized task progress from <strong>70.5% to 84.2%</strong>.</p><p class="figure-note">Paper evaluation: eight scenes per task. Full task completion counts as success. These aggregate results are separate from the three demonstration recordings above.</p><div class="transfer-mini"><span>RMBench → RoboDojo<br><small>Zero-shot success gain with frozen source knowledge</small></span><strong>+35.0<small>pp · GPT-5.5</small></strong><strong>+25.0<small>pp · GPT-6</small></strong></div></div><figure><button class="figure-expand" data-figure="assets/images/real-results.webp" data-title="Real-world success and normalized task progress" aria-label="Expand real-world results figure"><img src="assets/images/real-results.webp?v=da95885c8166" loading="lazy" width="1800" height="1488" alt="Real-world success: zero-shot to after RSI, 37.5 to 62.5 for cover; 62.5 to 87.5 for press; 25 to 37.5 for uncover, count and press. Pi 0.5 scores zero on all three."><span>View full figure</span></button><figcaption>Real-world evaluation reported in the paper.</figcaption></figure></div>
-    </div></section>
 
     <section class="section wrap citation-section" id="citation"><div><span class="eyebrow">04 / RESOURCES</span><h2>Build on RoboHarn-Evo.</h2><p>Read the paper, explore the implementation,<br>or cite this work.</p><div class="resource-links"><a href="https://arxiv.org/abs/2609.37583" target="_blank" rel="noopener">arXiv:2609.37583</a><a href="https://github.com/RUCKBReasoning/RoboHarn-Evo" target="_blank" rel="noopener">GitHub repository</a></div></div><div class="citation-box"><div><span>BIBTEX</span><button id="copy-citation" type="button">Copy citation</button></div><pre id="bibtex">@misc{bao2026roboharnevo,
   title = {RoboHarn-Evo: Evolving Hierarchical

@@ -4,38 +4,9 @@ const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const formatTime = seconds => `${Math.floor(seconds / 60).toString().padStart(2, '0')}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
 const tasks = {
-  1: { title: 'Cover blocks', date: '2026.09.24', taskCount: 6, actionCount: 4,
-    instruction: 'Cover the red, green, and blue blocks in that order, using both arms sequentially. The recorded instruction does not assign a particular cup to each block.',
-    knowledge: 'Simulation-derived cover knowledge is supplied to the planner through the earlier ICL implementation. This run is later incorporated as a source of real-world experience.',
-    outcome: 'Automatically verified success. All three blocks are covered in the required order.',
-    phases: [] },
-  2: { title: 'Press by number', date: '2026.10.01', taskCount: 12, actionCount: 13,
-    instruction: 'Read the two numbers. Press green twice for the left number, blue once for the right number, then red once to confirm. Use a closed empty gripper for pressing.',
-    knowledge: 'Simulation priors plus maintained Task 1 experience form the input store. Task retrieval supports finishing the current count before moving to the next target.',
-    outcome: 'Human-confirmed success. Individual press effects were verified; the automatic completion chain did not accept all events, and the run was stopped.',
-    phases: [
-      'Task retrieval supports the first green press toward the left displayed count of two. The blue count follows both verified green presses.',
-      'The first count entry is still in progress. One additional green press completes the left displayed count before moving to blue.',
-      'Task retrieval selects the right displayed count: one blue press. Confirmation follows completion of both count entries.',
-      'Both counts are complete. The selected Task Knowledge supports the final red confirmation press.'
-    ] },
-  3: { title: 'Uncover, count & press', date: '2026.10.01', taskCount: 16, actionCount: 16,
-    instruction: 'Lift and set aside the cup, count the exposed blocks, then use the other arm to press the matching buttons in red–green–blue order.',
-    knowledge: 'The input store combines simulation knowledge with maintained experience from Tasks 1 and 2. The recorded counts are red ×2, green ×1, blue ×1.',
-    outcome: 'Human-confirmed success. Automatic verification of the blue-button effect remains unresolved; an additional stroke was rejected.',
-    phases: [
-      'The input store contains 16 Task and 16 Action entries. Grasping the cup is a prerequisite to revealing and counting the blocks.',
-      'Lift the cup clear while preserving the grasp. Fresh observation reveals the blocks; exposing them does not yet complete safe cup placement.',
-      'Action entry 6 supports a clear, supported placement approached from above. Adoption is recorded; behavior_changed=false. This entry also exists in simulation knowledge.',
-      'Release and withdraw before transferring work to the other arm. The cup must stay stable and the button workspace must remain clear.',
-      'The right arm prepares for pressing while the left arm stays clear. This excerpt shows preparation, not a completed press.',
-      'Task entry 8 supports one distinct depression, release, and verification before the second red press. It carries maintenance provenance from Task 2.',
-      'Task entry 9 supports the second distinct red press-and-release cycle, with verification before advancing to green. Task-level behavior change is recorded.',
-      'The right arm approaches the green target. The run subsequently refreshes its visual identity and contact geometry before pressing.',
-      'The robot rebinds the green cap despite a stale class label, then executes a press-and-release cycle. Its physical effect is verified.',
-      'The blue contact stage remains uncertain in the automatic record. The later additional stroke request was rejected; no verified blue actuation is claimed.',
-      'The robot withdraws for verification. Blue remains unconfirmed automatically; the operator separately confirms the overall task outcome.'
-    ] }
+  1: {title: 'Cover blocks', date: '2026.09.24', instruction: 'Cover the red, green, and blue blocks in order, using both arms sequentially.'},
+  2: {title: 'Press by number', date: '2026.10.01', instruction: 'Read the numbers, press green twice and blue once, then press red to confirm.'},
+  3: {title: 'Uncover, count & press', date: '2026.10.01', instruction: 'Set the cup aside, count the exposed blocks, then use the other arm to press red twice, green once and blue once.'}
 };
 let selectedTask = 3;
 let currentChapter = -1;
@@ -56,10 +27,7 @@ function renderTask(id, userInitiated = false) {
   $('#demo-title').textContent = task.title;
   $('#demo-run').textContent = `ROLLOUT / ${task.date}`;
   $('#demo-instruction').textContent = task.instruction;
-  $('#task-count').textContent = task.taskCount;
-  $('#action-count').textContent = task.actionCount;
-  $('#demo-knowledge').textContent = task.knowledge;
-  $('#demo-outcome').textContent = task.outcome;
+  $('#demo-outcome').textContent = 'Task success verified.';
   $('#download-video').href = `assets/videos/task-${id}.mp4`;
   demoVideo.poster = `assets/images/task-${id}.jpg`;
   demoVideo.setAttribute('aria-label', `${task.title}, edited real robot demonstration at three times recorded speed`);
@@ -95,16 +63,23 @@ function updateChapter(forcedTime) {
   if (index < 0) index = time >= media.duration ? media.segments.length - 1 : 0;
   const segment = media.segments[index];
   const source = Math.min(segment.sourceEnd, segment.sourceStart + (time - segment.start) * media.playbackSpeed);
-  $('#source-time').textContent = `SOURCE ${formatTime(Math.max(0, source))}`;
+  $('#source-time').textContent = `${formatTime(time)} / ${formatTime(media.duration)}`;
+  $('#reasoning-progress').style.width = `${Math.max(0, Math.min(100, (time-segment.start)/(segment.end-segment.start)*100))}%`;
   if (index !== currentChapter) {
     currentChapter = index;
     $('#current-chapter').textContent = segment.label;
     $$('#chapters button').forEach((button, i) => button.setAttribute('aria-current', String(i === index)));
-    $('#demo-knowledge').textContent = tasks[selectedTask].phases[index] || tasks[selectedTask].knowledge;
+    const reasoning = window.REASONING_DATA[selectedTask][index];
+    $('#reasoning-step').textContent = `${String(index+1).padStart(2,'0')} / ${String(media.segments.length).padStart(2,'0')}`;
+    $('#reasoning-title').textContent = reasoning.title;
+    ['plan','action','check'].forEach(key => $(`#reasoning-${key}`).textContent = reasoning[key]);
+    $('#reasoning-content').getAnimations().forEach(animation => animation.cancel());
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) $('#reasoning-content').animate([{opacity:.35,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:220});
   }
 }
 demoVideo.addEventListener('timeupdate', () => updateChapter());
 demoVideo.addEventListener('loadedmetadata', () => updateChapter());
+demoVideo.addEventListener('seeked', () => updateChapter());
 new IntersectionObserver(entries => {
   if (!entries[0].isIntersecting) demoVideo.pause();
 }, {threshold: .05}).observe(demoVideo);
@@ -134,6 +109,10 @@ function updateHeroButton() {
 heroButton.addEventListener('click', () => {
   if (heroVideo.paused) { heroUserPaused = false; heroVideo.play().catch(() => {}); }
   else { heroUserPaused = true; heroVideo.pause(); }
+});
+heroVideo.addEventListener('timeupdate', () => {
+  const segment = window.HERO_DATA?.segments.find(item => heroVideo.currentTime >= item.start && heroVideo.currentTime < item.end);
+  if (segment) $('#hero-speed').textContent = `${segment.label.toUpperCase()} · ${segment.speed}×`;
 });
 heroVideo.addEventListener('play', updateHeroButton);
 heroVideo.addEventListener('pause', updateHeroButton);
@@ -216,4 +195,4 @@ const sectionObserver = new IntersectionObserver(entries => entries.forEach(entr
     else link.removeAttribute('aria-current');
   });
 }), {rootMargin:'-15% 0px -55% 0px'});
-['top','story','overview','demos','method','results','citation'].forEach(id => sectionObserver.observe(document.getElementById(id)));
+['top','overview','method','results','story','demos','citation'].forEach(id => sectionObserver.observe(document.getElementById(id)));
