@@ -1,0 +1,27 @@
+{
+  "duration": 150.83333333333334,
+  "chapters": [
+    {
+      "time": 0,
+      "label": "The idea"
+    },
+    {
+      "time": 5.0,
+      "label": "Cover"
+    },
+    {
+      "time": 54.625,
+      "label": "Press"
+    },
+    {
+      "time": 89.125,
+      "label": "Compose"
+    },
+    {
+      "time": 112.05,
+      "label": "Cross-task retrieval"
+    }
+  ],
+  "motionSpeed": 15,
+  "waitingSpeed": 150
+}
