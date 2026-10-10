@@ -11,12 +11,12 @@
   <link rel="icon" href="assets/favicon.svg?v=341991213f79" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=7233ce3fc8ba">
   <link rel="stylesheet" href="story.css?v=3d8a1147e90f">
-  <link rel="stylesheet" href="refresh.css?v=7a5d5a73b98d">
-  <script src="media-data.js?v=349533faeef3" defer></script>
+  <link rel="stylesheet" href="refresh.css?v=30803ac0ff4b">
+  <script src="media-data.js?v=5a876c0f3e75" defer></script>
   <script src="results-data.js?v=28bd8cda13a9" defer></script>
   <script src="hero-data.js?v=dbd927d9f971" defer></script>
-  <script src="reasoning-data.js?v=86f111ace51e" defer></script>
-  <script src="app.js?v=71d509b0005e" defer></script>
+  <script src="reasoning-data.js?v=7c173650f765" defer></script>
+  <script src="app.js?v=be6a63a8eda3" defer></script>
   <script src="story.js?v=f142a459d3ff" defer></script>
 </head>
 <body>
@@ -52,7 +52,7 @@
         </div>
       </div>
       <div class="hero-bottom">
-        <span class="hero-footage-note">TASK 3 · UNCOVER, COUNT &amp; PRESS <span id="hero-speed">ACTIONS 25× · WAITING 250×</span></span>
+        <span class="hero-footage-note">TASK 3 · UNCOVER, COUNT &amp; PRESS <span id="hero-speed">UNCOVER, COUNT & PRESS</span></span>
         <a class="hero-scroll" href="#overview">SCROLL TO EXPLORE<span aria-hidden="true"></span></a>
         <button id="hero-toggle" class="hero-pause" aria-label="Pause overview video"><span aria-hidden="true">Ⅱ</span><span class="hero-toggle-label">Pause video</span></button>
       </div>
@@ -78,11 +78,11 @@
     <section id="story" class="story-section" aria-label="Cross-task demonstration">
       <div class="wrap">
         <div class="story-cinema">
-          <div class="story-player-bar"><span><i aria-hidden="true"></i> ROBOHARN-EVO / CROSS-TASK DEMONSTRATION</span><a href="assets/videos/rsi-teaser.mp4?v=6ab870e9fd0b" download>Download video ↗</a></div>
-          <video id="story-video" controls playsinline preload="none" poster="assets/images/teaser-poster.jpg?v=2bfe75d2d420" aria-label="Three tasks. Growing experience. Complete episodes with synchronized HPK reasoning and cross-episode knowledge retrieval.">
-            <source src="assets/videos/rsi-teaser.mp4?v=6ab870e9fd0b" type="video/mp4">
-            <track kind="captions" src="assets/teaser-captions.vtt?v=dbaf8698eaaa" srclang="en" label="English">
-            <a href="assets/videos/rsi-teaser.mp4?v=6ab870e9fd0b">Watch the RSI demonstration</a>
+          <div class="story-player-bar"><span><i aria-hidden="true"></i> ROBOHARN-EVO / CROSS-TASK DEMONSTRATION</span><a href="assets/videos/rsi-teaser.mp4?v=093c6ec7cc88" download>Download video ↗</a></div>
+          <video id="story-video" controls playsinline preload="none" poster="assets/images/teaser-poster.jpg?v=e39b7d14d54f" aria-label="Three tasks. Growing experience. Complete episodes with synchronized HPK reasoning and cross-episode knowledge retrieval.">
+            <source src="assets/videos/rsi-teaser.mp4?v=093c6ec7cc88" type="video/mp4">
+            <track kind="captions" src="assets/teaser-captions.vtt?v=8857780c86c7" srclang="en" label="English">
+            <a href="assets/videos/rsi-teaser.mp4?v=093c6ec7cc88">Watch the RSI demonstration</a>
           </video>
           <div class="story-chapters" role="group" aria-label="Video chapters">
             <button data-story-time="0.000"><span>00:00</span>The idea</button>
@@ -115,6 +115,14 @@
 
 
 
+    <section class="section wrap simulation-section" id="simulation" aria-labelledby="simulation-heading">
+      <div class="section-heading"><div><span class="eyebrow">IN SIMULATION</span><h2 id="simulation-heading">Cover. Uncover. Press.</h2></div></div>
+      <div class="simulation-grid">
+        <article><video controls muted playsinline loop preload="metadata" poster="assets/images/sim-cover.jpg?v=fff5ffa2f9a6" aria-label="Simulation: cover blocks from left to right, then uncover red, green and blue"><source src="assets/videos/sim-cover.mp4?v=4e83599f59d0" type="video/mp4"></video><h3>Cover Blocks</h3><p>Cover the blocks from left to right, then uncover them in red–green–blue order.</p></article>
+        <article><video controls muted playsinline loop preload="metadata" poster="assets/images/sim-press.jpg?v=4e1c0aa79ab3" aria-label="Simulation: press buttons according to the two displayed digits"><source src="assets/videos/sim-press.mp4?v=88dda67c9a5c" type="video/mp4"></video><h3>Press Button</h3><p>Press the left button according to the left digit, then the middle button according to the right digit. Press the right button once to finish.</p></article>
+      </div>
+    </section>
+
     <section class="demo-section" id="demos" aria-labelledby="demo-heading">
       <div class="wrap">
         <div class="section-heading"><div><span class="eyebrow">03 / REAL ROBOT DEMONSTRATIONS</span><h2 id="demo-heading">Knowledge carried forward.</h2></div><p>From simulation priors to real-world experience,<br>then to a composed manipulation task.</p></div>
@@ -125,14 +133,13 @@
         </div>
         <div class="demo-layout" id="demo-panel" role="tabpanel" aria-labelledby="task-tab-3">
           <div class="demo-screen">
-            <div class="main-video-wrap"><video id="demo-video" controls playsinline preload="metadata" poster="assets/images/task-3.jpg?v=cf9dcf575009" aria-label="Uncover, count and press edited real robot demonstration"><source src="assets/videos/task-3.mp4?v=423029d11330" type="video/mp4"></video><span class="video-label">3× SPEED</span></div>
-            <div class="player-caption"><span id="current-chapter">Grasp the cup</span><span id="source-time">SOURCE 03:30</span></div>
+            <div class="main-video-wrap"><video id="demo-video" controls playsinline preload="metadata" poster="assets/images/task-3.jpg?v=cf9dcf575009" aria-label="Uncover, count and press continuous real robot demonstration"><source src="assets/videos/task-3.mp4?v=d7f5859d06b9" type="video/mp4"></video></div>
+            <div class="player-caption"><span id="current-chapter">Grasp the cup</span><span id="source-time">00:00 / 00:55</span></div>
             <div class="chapter-list" id="chapters" aria-label="Video chapters"></div>
           </div>
           <aside class="demo-context">
-            <span class="eyebrow" id="demo-run">ROLLOUT / 2026.10.01</span>
             <h3 id="demo-title">Uncover, count & press</h3>
-            <p id="demo-instruction">Lift and set aside the cup, count the exposed blocks, then use the other arm to press the matching buttons in red–green–blue order.</p>
+            <p id="demo-instruction">Use one arm to uncover the blocks and place the cup safely aside. Count each color, then use the other arm to press matching buttons in red–green–blue order. No extra confirmation press.</p>
             <div class="reasoning-panel" aria-label="RoboHarn-Evo reasoning synchronized with the demonstration">
               <div class="reasoning-heading"><span class="small-label">ROBOHARN-EVO / REASONING</span><span id="reasoning-step">01 / 11</span></div>
               <div class="reasoning-progress" aria-hidden="true"><span id="reasoning-progress"></span></div>
@@ -142,7 +149,7 @@
               </div>
             </div>
             <div class="demo-success"><span aria-hidden="true">✓</span><p id="demo-outcome">Task success verified.</p></div>
-            <a id="download-video" class="video-download" href="assets/videos/task-3.mp4?v=423029d11330" download>Download this edited clip <span>MP4</span></a>
+            <a id="download-video" class="video-download" href="assets/videos/task-3.mp4?v=d7f5859d06b9" download>Download video <span>MP4</span></a>
           </aside>
         </div>
       </div>
@@ -165,6 +172,6 @@
   </main>
   <footer class="wrap"><a class="wordmark" href="#top">RoboHarn-Evo</a><p>Physical experience. Reusable knowledge.</p><a href="#top">Back to top</a></footer>
   <dialog id="figure-dialog" aria-labelledby="figure-title"><div class="dialog-toolbar"><h2 id="figure-title">Paper figure</h2><button id="close-figure" aria-label="Close figure">Close <span aria-hidden="true">×</span></button></div><img id="dialog-image" alt=""></dialog>
-  <noscript><p class="noscript-note">JavaScript enables task switching and interactive charts. The selected video, paper, method figures, and citation remain available. <a href="assets/videos/task-1.mp4?v=e74b06053284">Task 1</a> · <a href="assets/videos/task-2.mp4?v=10affdb0c471">Task 2</a> · <a href="assets/videos/task-3.mp4?v=423029d11330">Task 3</a></p></noscript>
+  <noscript><p class="noscript-note">JavaScript enables task switching and interactive charts. The selected video, paper, method figures, and citation remain available. <a href="assets/videos/task-1.mp4?v=0f9d7dc947f1">Task 1</a> · <a href="assets/videos/task-2.mp4?v=bb6114067c9f">Task 2</a> · <a href="assets/videos/task-3.mp4?v=d7f5859d06b9">Task 3</a></p></noscript>
 </body>
 </html>

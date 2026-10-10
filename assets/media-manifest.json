@@ -3,184 +3,525 @@
     "task": 1,
     "sourceRun": "20260924/195945",
     "sourceVideo": "rollouts/20260924/195945/video/external.mkv",
-    "playbackSpeed": 3,
-    "edited": true,
-    "segments": [
+    "duration": 43.607780000000005,
+    "sourceDuration": 1573.167,
+    "edited": false,
+    "variableSpeed": true,
+    "video": "assets/videos/task-1.mp4?v=0f9d7dc947f1",
+    "timeMap": [
       {
+        "sourceStart": 0,
+        "sourceEnd": 196,
         "start": 0,
-        "end": 27.667,
+        "end": 1.3066666666666666,
+        "speed": 150
+      },
+      {
         "sourceStart": 196,
         "sourceEnd": 279,
-        "label": "Grasp the first cup"
+        "start": 1.3066666666666666,
+        "end": 6.84,
+        "speed": 15
       },
       {
-        "start": 27.667,
-        "end": 56.333,
+        "sourceStart": 279,
+        "sourceEnd": 367,
+        "start": 6.84,
+        "end": 7.426666666666667,
+        "speed": 150
+      },
+      {
         "sourceStart": 367,
         "sourceEnd": 453,
-        "label": "Cover red"
+        "start": 7.426666666666667,
+        "end": 13.16,
+        "speed": 15
       },
       {
-        "start": 56.333,
-        "end": 77.667,
+        "sourceStart": 453,
+        "sourceEnd": 705,
+        "start": 13.16,
+        "end": 14.84,
+        "speed": 150
+      },
+      {
         "sourceStart": 705,
         "sourceEnd": 769,
-        "label": "Grasp with the other arm"
+        "start": 14.84,
+        "end": 19.106666666666666,
+        "speed": 15
       },
       {
-        "start": 77.667,
-        "end": 86.0,
+        "sourceStart": 769,
+        "sourceEnd": 794,
+        "start": 19.106666666666666,
+        "end": 19.273333333333333,
+        "speed": 150
+      },
+      {
         "sourceStart": 794,
         "sourceEnd": 819,
-        "label": "Lift clear"
+        "start": 19.273333333333333,
+        "end": 20.94,
+        "speed": 15
       },
       {
-        "start": 86.0,
-        "end": 114.667,
+        "sourceStart": 819,
+        "sourceEnd": 904,
+        "start": 20.94,
+        "end": 21.506666666666668,
+        "speed": 150
+      },
+      {
         "sourceStart": 904,
         "sourceEnd": 990,
-        "label": "Cover green"
+        "start": 21.506666666666668,
+        "end": 27.240000000000002,
+        "speed": 15
       },
       {
-        "start": 114.667,
-        "end": 149.333,
+        "sourceStart": 990,
+        "sourceEnd": 1200,
+        "start": 27.240000000000002,
+        "end": 28.64,
+        "speed": 150
+      },
+      {
         "sourceStart": 1200,
         "sourceEnd": 1304,
-        "label": "Grasp the final cup"
+        "start": 28.64,
+        "end": 35.57333333333334,
+        "speed": 15
       },
       {
-        "start": 149.333,
-        "end": 184.0,
+        "sourceStart": 1304,
+        "sourceEnd": 1387,
+        "start": 35.57333333333334,
+        "end": 36.12666666666667,
+        "speed": 150
+      },
+      {
         "sourceStart": 1387,
         "sourceEnd": 1491,
-        "label": "Cover blue"
+        "start": 36.12666666666667,
+        "end": 43.06,
+        "speed": 15
+      },
+      {
+        "sourceStart": 1491,
+        "sourceEnd": 1573.167,
+        "start": 43.06,
+        "end": 43.607780000000005,
+        "speed": 150
       }
     ],
-    "duration": 184.0
+    "segments": [
+      {
+        "start": 0.0,
+        "end": 0.7613333333333333,
+        "sourceStart": 0,
+        "sourceEnd": 114.2,
+        "label": "Observe the blocks and cups"
+      },
+      {
+        "start": 0.7613333333333333,
+        "end": 14.132,
+        "sourceStart": 114.2,
+        "sourceEnd": 598.8,
+        "label": "Cover red first"
+      },
+      {
+        "start": 14.132,
+        "end": 21.217333333333336,
+        "sourceStart": 598.8,
+        "sourceEnd": 860.6,
+        "label": "Cover green next"
+      },
+      {
+        "start": 21.217333333333336,
+        "end": 28.116000000000003,
+        "sourceStart": 860.6,
+        "sourceEnd": 1121.4,
+        "label": "Complete the green cover"
+      },
+      {
+        "start": 28.116000000000003,
+        "end": 35.687333333333335,
+        "sourceStart": 1121.4,
+        "sourceEnd": 1321.1,
+        "label": "Cover blue last"
+      },
+      {
+        "start": 35.687333333333335,
+        "end": 43.607780000000005,
+        "sourceStart": 1321.1,
+        "sourceEnd": 1573.167,
+        "label": "Complete the blue cover"
+      }
+    ]
   },
   {
     "task": 2,
     "sourceRun": "20261001/133133",
     "sourceVideo": "rollouts/20261001/133133/video/external.mkv",
-    "playbackSpeed": 3,
-    "edited": true,
-    "segments": [
+    "duration": 28.480186666666665,
+    "sourceDuration": 1383.028,
+    "edited": false,
+    "variableSpeed": true,
+    "video": "assets/videos/task-2.mp4?v=bb6114067c9f",
+    "timeMap": [
       {
+        "sourceStart": 0,
+        "sourceEnd": 202,
         "start": 0,
-        "end": 29.333,
+        "end": 1.3466666666666667,
+        "speed": 150
+      },
+      {
         "sourceStart": 202,
         "sourceEnd": 290,
-        "label": "Green \u00b7 press 1 of 2"
+        "start": 1.3466666666666667,
+        "end": 7.213333333333333,
+        "speed": 15
       },
       {
-        "start": 29.333,
-        "end": 55.0,
+        "sourceStart": 290,
+        "sourceEnd": 451,
+        "start": 7.213333333333333,
+        "end": 8.286666666666665,
+        "speed": 150
+      },
+      {
         "sourceStart": 451,
         "sourceEnd": 528,
-        "label": "Green \u00b7 press 2 of 2"
+        "start": 8.286666666666665,
+        "end": 13.419999999999998,
+        "speed": 15
       },
       {
-        "start": 55.0,
-        "end": 81.0,
+        "sourceStart": 528,
+        "sourceEnd": 711,
+        "start": 13.419999999999998,
+        "end": 14.639999999999999,
+        "speed": 150
+      },
+      {
         "sourceStart": 711,
         "sourceEnd": 789,
-        "label": "Blue \u00b7 press 1 of 1"
+        "start": 14.639999999999999,
+        "end": 19.84,
+        "speed": 15
       },
       {
-        "start": 81.0,
-        "end": 107.0,
+        "sourceStart": 789,
+        "sourceEnd": 946,
+        "start": 19.84,
+        "end": 20.886666666666667,
+        "speed": 150
+      },
+      {
         "sourceStart": 946,
         "sourceEnd": 1024,
-        "label": "Red \u00b7 confirm"
+        "start": 20.886666666666667,
+        "end": 26.086666666666666,
+        "speed": 15
+      },
+      {
+        "sourceStart": 1024,
+        "sourceEnd": 1383.028,
+        "start": 26.086666666666666,
+        "end": 28.480186666666665,
+        "speed": 150
       }
     ],
-    "duration": 107.0
+    "segments": [
+      {
+        "start": 0.0,
+        "end": 0.8413333333333334,
+        "sourceStart": 0,
+        "sourceEnd": 126.2,
+        "label": "Read the displayed counts"
+      },
+      {
+        "start": 0.8413333333333334,
+        "end": 7.811333333333333,
+        "sourceStart": 126.2,
+        "sourceEnd": 379.7,
+        "label": "Green: first of two presses"
+      },
+      {
+        "start": 7.811333333333333,
+        "end": 14.179333333333332,
+        "sourceStart": 379.7,
+        "sourceEnd": 641.9,
+        "label": "Green: second of two presses"
+      },
+      {
+        "start": 14.179333333333332,
+        "end": 20.398,
+        "sourceStart": 641.9,
+        "sourceEnd": 872.7,
+        "label": "Blue: one press"
+      },
+      {
+        "start": 20.398,
+        "end": 26.689999999999998,
+        "sourceStart": 872.7,
+        "sourceEnd": 1114.5,
+        "label": "Red: confirm the entered counts"
+      },
+      {
+        "start": 26.689999999999998,
+        "end": 28.480186666666665,
+        "sourceStart": 1114.5,
+        "sourceEnd": 1383.028,
+        "label": "Review the completed sequence"
+      }
+    ]
   },
   {
     "task": 3,
     "sourceRun": "20261001/210736",
     "sourceVideo": "rollouts/20261001/210736/video/external.mkv",
-    "playbackSpeed": 3,
-    "edited": true,
-    "segments": [
+    "duration": 54.69192,
+    "sourceDuration": 3694.788,
+    "edited": false,
+    "variableSpeed": true,
+    "video": "assets/videos/task-3.mp4?v=d7f5859d06b9",
+    "timeMap": [
       {
+        "sourceStart": 0,
+        "sourceEnd": 210,
         "start": 0,
-        "end": 21.0,
+        "end": 1.4,
+        "speed": 150
+      },
+      {
         "sourceStart": 210,
         "sourceEnd": 273,
-        "label": "Grasp the cup"
+        "start": 1.4,
+        "end": 5.6,
+        "speed": 15
       },
       {
-        "start": 21.0,
-        "end": 28.0,
+        "sourceStart": 273,
+        "sourceEnd": 461,
+        "start": 5.6,
+        "end": 6.8533333333333335,
+        "speed": 150
+      },
+      {
         "sourceStart": 461,
         "sourceEnd": 482,
-        "label": "Uncover the blocks"
+        "start": 6.8533333333333335,
+        "end": 8.253333333333334,
+        "speed": 15
       },
       {
-        "start": 28.0,
-        "end": 44.0,
+        "sourceStart": 482,
+        "sourceEnd": 787,
+        "start": 8.253333333333334,
+        "end": 10.286666666666667,
+        "speed": 150
+      },
+      {
         "sourceStart": 787,
         "sourceEnd": 835,
-        "label": "Place the cup"
+        "start": 10.286666666666667,
+        "end": 13.486666666666668,
+        "speed": 15
       },
       {
-        "start": 44.0,
-        "end": 51.333,
+        "sourceStart": 835,
+        "sourceEnd": 876,
+        "start": 13.486666666666668,
+        "end": 13.760000000000002,
+        "speed": 150
+      },
+      {
         "sourceStart": 876,
         "sourceEnd": 898,
-        "label": "Withdraw the first arm"
+        "start": 13.760000000000002,
+        "end": 15.226666666666668,
+        "speed": 15
       },
       {
-        "start": 51.333,
-        "end": 68.333,
+        "sourceStart": 898,
+        "sourceEnd": 1398,
+        "start": 15.226666666666668,
+        "end": 18.560000000000002,
+        "speed": 150
+      },
+      {
         "sourceStart": 1398,
         "sourceEnd": 1449,
-        "label": "Prepare the other arm"
+        "start": 18.560000000000002,
+        "end": 21.96,
+        "speed": 15
       },
       {
-        "start": 68.333,
-        "end": 88.0,
+        "sourceStart": 1449,
+        "sourceEnd": 1687,
+        "start": 21.96,
+        "end": 23.546666666666667,
+        "speed": 150
+      },
+      {
         "sourceStart": 1687,
         "sourceEnd": 1746,
-        "label": "Red \u00b7 press 1 of 2"
+        "start": 23.546666666666667,
+        "end": 27.48,
+        "speed": 15
       },
       {
-        "start": 88.0,
-        "end": 106.667,
+        "sourceStart": 1746,
+        "sourceEnd": 1942,
+        "start": 27.48,
+        "end": 28.78666666666667,
+        "speed": 150
+      },
+      {
         "sourceStart": 1942,
         "sourceEnd": 1998,
-        "label": "Red \u00b7 press 2 of 2"
+        "start": 28.78666666666667,
+        "end": 32.52,
+        "speed": 15
       },
       {
-        "start": 106.667,
-        "end": 113.333,
+        "sourceStart": 1998,
+        "sourceEnd": 2206,
+        "start": 32.52,
+        "end": 33.906666666666666,
+        "speed": 150
+      },
+      {
         "sourceStart": 2206,
         "sourceEnd": 2226,
-        "label": "Green \u00b7 approach"
+        "start": 33.906666666666666,
+        "end": 35.24,
+        "speed": 15
       },
       {
-        "start": 113.333,
-        "end": 143.333,
+        "sourceStart": 2226,
+        "sourceEnd": 2606,
+        "start": 35.24,
+        "end": 37.77333333333333,
+        "speed": 150
+      },
+      {
         "sourceStart": 2606,
         "sourceEnd": 2696,
-        "label": "Green \u00b7 rebind and press"
+        "start": 37.77333333333333,
+        "end": 43.77333333333333,
+        "speed": 15
       },
       {
-        "start": 143.333,
-        "end": 159.0,
+        "sourceStart": 2696,
+        "sourceEnd": 2911,
+        "start": 43.77333333333333,
+        "end": 45.20666666666666,
+        "speed": 150
+      },
+      {
         "sourceStart": 2911,
         "sourceEnd": 2958,
-        "label": "Blue \u00b7 press and release"
+        "start": 45.20666666666666,
+        "end": 48.339999999999996,
+        "speed": 15
       },
       {
-        "start": 159.0,
-        "end": 167.0,
+        "sourceStart": 2958,
+        "sourceEnd": 3104,
+        "start": 48.339999999999996,
+        "end": 49.31333333333333,
+        "speed": 150
+      },
+      {
         "sourceStart": 3104,
         "sourceEnd": 3128,
-        "label": "Blue \u00b7 withdraw"
+        "start": 49.31333333333333,
+        "end": 50.913333333333334,
+        "speed": 15
+      },
+      {
+        "sourceStart": 3128,
+        "sourceEnd": 3694.788,
+        "start": 50.913333333333334,
+        "end": 54.69192,
+        "speed": 150
       }
     ],
-    "duration": 167.0
+    "segments": [
+      {
+        "start": 0.0,
+        "end": 0.766,
+        "sourceStart": 0,
+        "sourceEnd": 114.9,
+        "label": "Reveal the hidden blocks"
+      },
+      {
+        "start": 0.766,
+        "end": 9.669333333333334,
+        "sourceStart": 114.9,
+        "sourceEnd": 694.4,
+        "label": "Uncover before counting"
+      },
+      {
+        "start": 9.669333333333334,
+        "end": 18.177333333333333,
+        "sourceStart": 694.4,
+        "sourceEnd": 1340.6,
+        "label": "Set the cup aside"
+      },
+      {
+        "start": 18.177333333333333,
+        "end": 22.925333333333334,
+        "sourceStart": 1340.6,
+        "sourceEnd": 1593.8,
+        "label": "Prepare red \u00d72, green \u00d71, blue \u00d71"
+      },
+      {
+        "start": 22.925333333333334,
+        "end": 28.344,
+        "sourceStart": 1593.8,
+        "sourceEnd": 1875.6,
+        "label": "Red: first of two presses"
+      },
+      {
+        "start": 28.344,
+        "end": 33.44533333333334,
+        "sourceStart": 1875.6,
+        "sourceEnd": 2136.8,
+        "label": "Red: second of two presses"
+      },
+      {
+        "start": 33.44533333333334,
+        "end": 37.187333333333335,
+        "sourceStart": 2136.8,
+        "sourceEnd": 2518.1,
+        "label": "Re-ground the green target"
+      },
+      {
+        "start": 37.187333333333335,
+        "end": 44.687333333333335,
+        "sourceStart": 2518.1,
+        "sourceEnd": 2833.1,
+        "label": "Green: one press"
+      },
+      {
+        "start": 44.687333333333335,
+        "end": 51.751333333333335,
+        "sourceStart": 2833.1,
+        "sourceEnd": 3253.7,
+        "label": "Blue: one press"
+      },
+      {
+        "start": 51.751333333333335,
+        "end": 54.69192,
+        "sourceStart": 3253.7,
+        "sourceEnd": 3694.788,
+        "label": "Review the composed task"
+      }
+    ]
   }
 ]

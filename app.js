@@ -4,9 +4,9 @@ const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const formatTime = seconds => `${Math.floor(seconds / 60).toString().padStart(2, '0')}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
 const tasks = {
-  1: {title: 'Cover blocks', date: '2026.09.24', instruction: 'Cover the red, green, and blue blocks in order, using both arms sequentially.'},
-  2: {title: 'Press by number', date: '2026.10.01', instruction: 'Read the numbers, press green twice and blue once, then press red to confirm.'},
-  3: {title: 'Uncover, count & press', date: '2026.10.01', instruction: 'Set the cup aside, count the exposed blocks, then use the other arm to press red twice, green once and blue once.'}
+  1: {title: 'Cover blocks', instruction: 'Cover red, then green, then blue. Use both arms, moving only one arm at a time.'},
+  2: {title: 'Press by digit–color mapping', instruction: 'Read the left and right digits. In this demonstration, the left digit sets the green-button count and the right digit sets the blue-button count. Complete green, then blue, then press red once to finish.'},
+  3: {title: 'Uncover, count & press', instruction: 'Use one arm to uncover the blocks and release the cup safely away from them. Count each color, then use the other arm to press red, green, and blue in order, matching each color’s block count. No extra confirmation press.'}
 };
 let selectedTask = 3;
 let currentChapter = -1;
@@ -25,14 +25,13 @@ function renderTask(id, userInitiated = false) {
   });
   $('#demo-panel').setAttribute('aria-labelledby', `task-tab-${id}`);
   $('#demo-title').textContent = task.title;
-  $('#demo-run').textContent = `ROLLOUT / ${task.date}`;
   $('#demo-instruction').textContent = task.instruction;
   $('#demo-outcome').textContent = 'Task success verified.';
-  $('#download-video').href = `assets/videos/task-${id}.mp4`;
+  $('#download-video').href = mediaFor().video;
   demoVideo.poster = `assets/images/task-${id}.jpg`;
-  demoVideo.setAttribute('aria-label', `${task.title}, edited real robot demonstration at three times recorded speed`);
+  demoVideo.setAttribute('aria-label', `${task.title}, continuous real robot demonstration`);
   if (userInitiated) {
-    demoVideo.src = `assets/videos/task-${id}.mp4`;
+    demoVideo.src = mediaFor().video;
     demoVideo.load();
   }
   $('#chapters').replaceChildren();
@@ -42,7 +41,7 @@ function renderTask(id, userInitiated = false) {
     const time = document.createElement('span');
     time.textContent = formatTime(segment.start);
     button.append(time, segment.label);
-    button.setAttribute('aria-label', `Play ${segment.label}, excerpt ${formatTime(segment.start)}`);
+    button.setAttribute('aria-label', `Play ${segment.label}, ${formatTime(segment.start)}`);
     button.addEventListener('click', () => {
       demoVideo.currentTime = segment.start;
       updateChapter();
@@ -62,7 +61,6 @@ function updateChapter(forcedTime) {
   let index = media.segments.findIndex(segment => time >= segment.start && time < segment.end);
   if (index < 0) index = time >= media.duration ? media.segments.length - 1 : 0;
   const segment = media.segments[index];
-  const source = Math.min(segment.sourceEnd, segment.sourceStart + (time - segment.start) * media.playbackSpeed);
   $('#source-time').textContent = `${formatTime(time)} / ${formatTime(media.duration)}`;
   $('#reasoning-progress').style.width = `${Math.max(0, Math.min(100, (time-segment.start)/(segment.end-segment.start)*100))}%`;
   if (index !== currentChapter) {
@@ -112,7 +110,7 @@ heroButton.addEventListener('click', () => {
 });
 heroVideo.addEventListener('timeupdate', () => {
   const segment = window.HERO_DATA?.segments.find(item => heroVideo.currentTime >= item.start && heroVideo.currentTime < item.end);
-  if (segment) $('#hero-speed').textContent = `${segment.label.toUpperCase()} · ${segment.speed}×`;
+  if (segment) $('#hero-speed').textContent = segment.label.toUpperCase();
 });
 heroVideo.addEventListener('play', updateHeroButton);
 heroVideo.addEventListener('pause', updateHeroButton);
