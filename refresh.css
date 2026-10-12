@@ -45,3 +45,17 @@
 @media(max-width:520px){.hero.hero-cinematic{padding:40px 19px 110px;min-height:850px}.hero-cinematic h1{font-size:clamp(43px,10.9vw,57px);letter-spacing:-2px}.hero-cinematic .paper-title{font-size:23px;margin-top:22px}.hero-cinematic .hero-description{font-size:13px;line-height:1.7;max-width:300px}.hero-cinematic .hero-authors{margin-top:22px}.hero-authors .author-names{font-size:14px;gap:7px 14px}.hero-authors .affiliations{gap:5px;flex-direction:column;font-size:12px}.hero-authors .affiliation-details{font-size:11px}.hero-cinematic .hero-actions{gap:9px;margin-top:22px}.hero-cinematic .hero-actions .button{font-size:12px;min-height:42px;padding:10px 13px}.hero-cinematic .hero-actions .text-link{font-size:12px}.hero-cinematic .hero-bottom{left:19px;right:19px;bottom:22px}.hero-footage-note{max-width:220px;font-size:9px}.hero-pause{font-size:11px;padding:10px}.reasoning-panel dl{display:block}.reasoning-panel h4{font-size:25px}.reasoning-panel{padding:22px}.hero-authors .affiliation-details p{font-size:12px}}
 @media(max-width:520px){.hero.hero-cinematic{min-height:calc(100svh - 66px);padding-top:30px;padding-bottom:96px}.hero-authors .author-names{display:grid;grid-template-columns:repeat(2,max-content);gap:6px 20px}.hero-footage-note{max-width:210px}}
 
+
+/* Knowledge-maintenance cohort comparison. */
+.maintenance-chart{margin:22px 0 0}
+.maintenance-checkpoint{font-size:10px;letter-spacing:.1em;color:var(--muted);margin-bottom:26px}
+.maintenance-group+ .maintenance-group{border-top:1px solid #d0dacf;margin-top:30px;padding-top:26px}
+.maintenance-group h4{font:500 15px/1.5 var(--sans);margin:0 0 20px}
+.maintenance-row{display:grid;grid-template-columns:62px minmax(0,1fr) 88px;gap:12px;align-items:center;margin:18px 0}
+.maintenance-model{font-size:12px;color:var(--muted)}
+.maintenance-track{height:20px;background:#dce3da;border-radius:2px;overflow:hidden}
+.maintenance-track>span{display:block;height:100%;background:var(--series-color)}
+.maintenance-value{text-align:right;line-height:1.4}
+.maintenance-value strong{display:block;font-size:18px;font-weight:600;color:var(--series-color)}
+.maintenance-value small{display:block;font-size:10px;color:var(--muted);white-space:nowrap}
+@media(max-width:480px){.maintenance-row{grid-template-columns:57px minmax(0,1fr) 77px;gap:9px}.maintenance-group h4{font-size:14px}.maintenance-value strong{font-size:17px}}
