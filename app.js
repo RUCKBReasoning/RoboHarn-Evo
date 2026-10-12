@@ -135,9 +135,7 @@ function renderBenchmark(model) {
   $('#mean-base').textContent = data.mean[0].toFixed(1);
   $('#mean-full').innerHTML = `${data.mean[1].toFixed(1)}<span>%</span>`;
   $('#mean-gain').textContent = `+${data.gain.toFixed(1)} pp`;
-  $('#table-model').textContent = model;
   $('#benchmark-bars').innerHTML = benchmarkTasks.map((task, i) => `<div class="bar-row" aria-label="${task}: without HPK ${data.base[i]} percent; Full HPK ${data.full[i]} percent"><span>${task}</span><div class="bar-pair" aria-hidden="true"><div class="bar" style="width:${data.base[i]}%"><span>${data.base[i]}</span></div><div class="bar full" style="width:${data.full[i]}%"><span>${data.full[i]}</span></div></div></div>`).join('');
-  $('#benchmark-table').innerHTML = benchmarkTasks.map((task, i) => `<tr><th scope="row">${task}</th><td>${data.base[i]}</td><td>${data.full[i]}</td><td>+${data.full[i]-data.base[i]}</td></tr>`).join('') + `<tr><th scope="row">Overall</th><td>${data.mean[0]}</td><td>${data.mean[1]}</td><td>+${data.gain}</td></tr>`;
 }
 $$('[data-model]').forEach(button => button.addEventListener('click', () => renderBenchmark(button.dataset.model)));
 renderBenchmark('GPT-5.5');
@@ -159,7 +157,6 @@ function renderLearning() {
     const last=points[points.length-1]; svg += `<text x="${x(last.k)-4}" y="${y(last.mean)-15}" text-anchor="end" font-size="14" font-weight="600" fill="${color}" font-family="Arial">${last.mean.toFixed(1)}%</text>`;
   });
   $('#learning-chart').innerHTML = svg + '</svg>';
-  $('#learning-table').innerHTML = data['GPT-5.5'].map((p,i) => `<tr><th scope="row">${p.k}</th><td>${p.mean.toFixed(1)} ± ${p.sd.toFixed(1)}</td><td>${data['GPT-6'][i].mean.toFixed(1)} ± ${data['GPT-6'][i].sd.toFixed(1)}</td></tr>`).join('');
 }
 renderLearning();
 
