@@ -11,7 +11,7 @@
   <link rel="icon" href="assets/favicon.svg?v=341991213f79" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=7233ce3fc8ba">
   <link rel="stylesheet" href="story.css?v=3d8a1147e90f">
-  <link rel="stylesheet" href="refresh.css?v=09ba1083f5ba">
+  <link rel="stylesheet" href="refresh.css?v=ccf643e807b5">
   <script src="media-data.js?v=5a876c0f3e75" defer></script>
   <script src="results-data.js?v=28bd8cda13a9" defer></script>
   <script src="hero-data.js?v=dbd927d9f971" defer></script>
@@ -116,7 +116,10 @@
           <div class="maintenance-group"><h4>Initially correct knowledge retained</h4><div class="maintenance-row" style="--series-color:var(--green)"><span class="maintenance-model">GPT-5.5</span><div class="maintenance-track" aria-hidden="true"><span style="width:95.83333333333334%"></span></div><span class="maintenance-value"><strong>95.8%</strong><small>23 / 24 entries</small></span></div><div class="maintenance-row" style="--series-color:var(--rose)"><span class="maintenance-model">GPT-6</span><div class="maintenance-track" aria-hidden="true"><span style="width:95.83333333333334%"></span></div><span class="maintenance-value"><strong>95.8%</strong><small>23 / 24 entries</small></span></div></div>
         </figure>
       </article></div>
-      <div class="transfer-block"><div><span class="small-label">SIMULATION → REAL WORLD</span><h3>Physical experience transfers.</h3><p>On three real-world tasks, further knowledge updates raise mean success from <strong>41.7% to 62.5%</strong>, and normalized task progress from <strong>70.5% to 84.2%</strong>.</p><p class="figure-note">Paper evaluation: eight scenes per task. Full task completion counts as success. These aggregate results are separate from the three demonstrations below.</p><div class="transfer-mini"><span>RMBench → RoboDojo<br><small>Zero-shot success gain with frozen source knowledge</small></span><strong>+35.0<small>pp · GPT-5.5</small></strong><strong>+25.0<small>pp · GPT-6</small></strong></div></div><figure><button class="figure-expand" data-figure="assets/images/real-results.webp" data-title="Real-world success and normalized task progress" aria-label="Expand real-world results figure"><img src="assets/images/real-results.webp?v=da95885c8166" loading="lazy" width="1800" height="1488" alt="Real-world success: zero-shot to after RSI, 37.5 to 62.5 for cover; 62.5 to 87.5 for press; 25 to 37.5 for uncover, count and press. Pi 0.5 scores zero on all three."><span>View full figure</span></button><figcaption>Real-world evaluation reported in the paper.</figcaption></figure></div>
+      <div class="transfer-block">
+        <article class="simulation-transfer"><span class="small-label">RMBENCH → ROBODOJO</span><h3>Simulation transfer.</h3><p>Knowledge learned in RMBench is transferred zero-shot to RoboDojo, a different simulation environment.</p><div class="transfer-mini"><span>Zero-shot success gain<small>Source knowledge stays frozen during evaluation.</small></span><strong>+35.0<small>pp · GPT-5.5</small></strong><strong>+25.0<small>pp · GPT-6</small></strong></div></article>
+        <article class="real-world-rsi"><span class="small-label">THREE REAL-WORLD TASKS</span><h3>Real-world RSI.</h3><p>Knowledge updates from real-world experience raise mean success from <strong>41.7% to 62.5%</strong> and task progress from <strong>70.5% to 84.2%</strong>.</p><figure><button class="figure-expand" data-figure="assets/images/real-results.webp" data-title="Real-world success and normalized task progress" aria-label="Expand real-world results figure"><img src="assets/images/real-results.webp?v=da95885c8166" loading="lazy" width="1800" height="1488" alt="Real-world success: zero-shot to after RSI, 37.5 to 62.5 for cover; 62.5 to 87.5 for press; 25 to 37.5 for uncover, count and press. Pi 0.5 scores zero on all three."><span>View full figure</span></button></figure></article>
+      </div>
     </div></section>
 
 

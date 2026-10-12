@@ -59,3 +59,6 @@
 .maintenance-value strong{display:block;font-size:18px;font-weight:600;color:var(--series-color)}
 .maintenance-value small{display:block;font-size:10px;color:var(--muted);white-space:nowrap}
 @media(max-width:480px){.maintenance-row{grid-template-columns:57px minmax(0,1fr) 77px;gap:9px}.maintenance-group h4{font-size:14px}.maintenance-value strong{font-size:17px}}
+
+.transfer-block{align-items:start}
+.real-world-rsi figure{margin-top:24px}
