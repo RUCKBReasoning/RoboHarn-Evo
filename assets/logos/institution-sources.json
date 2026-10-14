@@ -1,0 +1,51 @@
+[
+  {
+    "file": "tsinghua-white.svg",
+    "official_page": "https://vi.tsinghua.edu.cn/gk/xxbz/bzzh1.htm",
+    "source_asset": "https://vi.tsinghua.edu.cn/__local/E/87/55/EDE2CD6FC2310945BA206EC8242_9AA2B06D_18167.jpg",
+    "source_sha256": "5bba2316fe2a231b67c1de13e9c3229db963c81ade4eb5a747813e60ba8d8197",
+    "viewbox": [
+      231,
+      154,
+      890,
+      300
+    ],
+    "source_dimensions": [
+      1400,
+      600
+    ],
+    "processing": "Official horizontal emblem + Chinese calligraphy + English artwork, original geometry and lettering preserved; white ink via SVG filter."
+  },
+  {
+    "file": "renmin-white.svg",
+    "official_page": "https://www.ruc.edu.cn/xuexiaobiaozhi1924747550510977025.html",
+    "source_asset": "https://www.ruc.edu.cn/template/1/out/imgs/footer_logo.png",
+    "source_sha256": "7d1b8a14dd1b68a517672c4f2778634f3429f8a104693e4521159b3841d48495",
+    "viewbox": [
+      0,
+      0,
+      383,
+      80
+    ],
+    "source_dimensions": [
+      520,
+      370
+    ],
+    "processing": "Official white emblem and Chinese-over-English artwork from the university website, arranged in the official horizontal lockup layout. Equal-aspect scaling, no substituted glyphs.",
+    "source_regions": {
+      "seal": [
+        166,
+        9,
+        193,
+        193
+      ],
+      "official_bilingual_lettering": [
+        0,
+        220,
+        520,
+        138
+      ]
+    },
+    "horizontal_layout_reference": "https://www.ruc.edu.cn/template/1/out/imgs/VI/6.png"
+  }
+]

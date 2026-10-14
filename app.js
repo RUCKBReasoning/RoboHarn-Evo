@@ -3,104 +3,12 @@
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const formatTime = seconds => `${Math.floor(seconds / 60).toString().padStart(2, '0')}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
-const tasks = {
-  1: {title: 'Cover blocks', instruction: 'Cover red, then green, then blue. Use both arms, moving only one arm at a time.'},
-  2: {title: 'Press by digit–color mapping', instruction: 'Read the left and right digits. In this demonstration, the left digit sets the green-button count and the right digit sets the blue-button count. Complete green, then blue, then press red once to finish.'},
-  3: {title: 'Uncover, count & press', instruction: 'Use one arm to uncover the blocks and release the cup safely away from them. Count each color, then use the other arm to press red, green, and blue in order, matching each color’s block count. No extra confirmation press.'}
-};
-let selectedTask = 3;
-let currentChapter = -1;
-const demoVideo = $('#demo-video');
-const mediaFor = () => (window.MEDIA_DATA || []).find(item => item.task === selectedTask);
-
-function renderTask(id, userInitiated = false) {
-  const wasPlaying = !demoVideo.paused;
-  demoVideo.pause();
-  selectedTask = id;
-  const task = tasks[id];
-  $$('.task-tabs button').forEach(button => {
-    const selected = Number(button.dataset.task) === id;
-    button.setAttribute('aria-selected', String(selected));
-    button.tabIndex = selected ? 0 : -1;
-  });
-  $('#demo-panel').setAttribute('aria-labelledby', `task-tab-${id}`);
-  $('#demo-title').textContent = task.title;
-  $('#demo-instruction').textContent = task.instruction;
-  $('#demo-outcome').textContent = 'Task success verified.';
-  $('#download-video').href = mediaFor().video;
-  demoVideo.poster = `assets/images/task-${id}.jpg`;
-  demoVideo.setAttribute('aria-label', `${task.title}, continuous real robot demonstration`);
-  if (userInitiated) {
-    demoVideo.src = mediaFor().video;
-    demoVideo.load();
-  }
-  $('#chapters').replaceChildren();
-  const media = mediaFor();
-  if (media) media.segments.forEach((segment, index) => {
-    const button = document.createElement('button');
-    const time = document.createElement('span');
-    time.textContent = formatTime(segment.start);
-    button.append(time, segment.label);
-    button.setAttribute('aria-label', `Play ${segment.label}, ${formatTime(segment.start)}`);
-    button.addEventListener('click', () => {
-      demoVideo.currentTime = segment.start;
-      updateChapter();
-      demoVideo.play().catch(() => {});
-    });
-    $('#chapters').append(button);
-  });
-  currentChapter = -1;
-  updateChapter(0);
-  if (userInitiated && wasPlaying) demoVideo.play().catch(() => {});
-}
-
-function updateChapter(forcedTime) {
-  const media = mediaFor();
-  if (!media) return;
-  const time = typeof forcedTime === 'number' ? forcedTime : demoVideo.currentTime;
-  let index = media.segments.findIndex(segment => time >= segment.start && time < segment.end);
-  if (index < 0) index = time >= media.duration ? media.segments.length - 1 : 0;
-  const segment = media.segments[index];
-  $('#source-time').textContent = `${formatTime(time)} / ${formatTime(media.duration)}`;
-  $('#reasoning-progress').style.width = `${Math.max(0, Math.min(100, (time-segment.start)/(segment.end-segment.start)*100))}%`;
-  if (index !== currentChapter) {
-    currentChapter = index;
-    $('#current-chapter').textContent = segment.label;
-    $$('#chapters button').forEach((button, i) => button.setAttribute('aria-current', String(i === index)));
-    const reasoning = window.REASONING_DATA[selectedTask][index];
-    $('#reasoning-step').textContent = `${String(index+1).padStart(2,'0')} / ${String(media.segments.length).padStart(2,'0')}`;
-    $('#reasoning-title').textContent = reasoning.title;
-    ['plan','action','check'].forEach(key => $(`#reasoning-${key}`).textContent = reasoning[key]);
-    $('#reasoning-content').getAnimations().forEach(animation => animation.cancel());
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) $('#reasoning-content').animate([{opacity:.35,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:220});
-  }
-}
-demoVideo.addEventListener('timeupdate', () => updateChapter());
-demoVideo.addEventListener('loadedmetadata', () => updateChapter());
-demoVideo.addEventListener('seeked', () => updateChapter());
-new IntersectionObserver(entries => {
-  if (!entries[0].isIntersecting) demoVideo.pause();
-}, {threshold: .05}).observe(demoVideo);
-$$('.task-tabs button').forEach((button, index, buttons) => {
-  button.addEventListener('click', () => renderTask(Number(button.dataset.task), true));
-  button.addEventListener('keydown', event => {
-    let next;
-    if (event.key === 'ArrowRight') next = (index + 1) % buttons.length;
-    if (event.key === 'ArrowLeft') next = (index + buttons.length - 1) % buttons.length;
-    if (event.key === 'Home') next = 0;
-    if (event.key === 'End') next = buttons.length - 1;
-    if (next === undefined) return;
-    event.preventDefault(); buttons[next].focus(); buttons[next].click();
-  });
-});
-renderTask(3);
-
 const heroVideo = $('#hero-video');
 const heroButton = $('#hero-toggle');
 let heroUserPaused = false;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 function updateHeroButton() {
-  heroButton.setAttribute('aria-label', heroVideo.paused ? 'Play overview video' : 'Pause overview video');
+  heroButton.setAttribute('aria-label', heroVideo.paused ? 'Play background video' : 'Pause background video');
   heroButton.firstElementChild.textContent = heroVideo.paused ? '▶' : 'Ⅱ';
   $('.hero-toggle-label').textContent = heroVideo.paused ? 'Play video' : 'Pause video';
 }
@@ -119,7 +27,7 @@ new IntersectionObserver(entries => {
   if (!entries[0].isIntersecting) heroVideo.pause();
   else if (!heroUserPaused && !reducedMotion.matches) heroVideo.play().catch(() => {});
 }, {threshold: .1}).observe(heroVideo);
-document.addEventListener('visibilitychange', () => { if (document.hidden) {heroVideo.pause();demoVideo.pause();} });
+document.addEventListener('visibilitychange', () => { if (document.hidden) {$$('video').forEach(video => video.pause());} });
 updateHeroButton();
 
 const benchmarkTasks = ['Rearrange Blocks', 'Swap Blocks', 'Press Button', 'Swap T', 'Put Back Block', 'Cover Blocks'];
@@ -135,7 +43,7 @@ function renderBenchmark(model) {
   $('#mean-base').textContent = data.mean[0].toFixed(1);
   $('#mean-full').innerHTML = `${data.mean[1].toFixed(1)}<span>%</span>`;
   $('#mean-gain').textContent = `+${data.gain.toFixed(1)} pp`;
-  $('#benchmark-bars').innerHTML = benchmarkTasks.map((task, i) => `<div class="bar-row" aria-label="${task}: without HPK ${data.base[i]} percent; Full HPK ${data.full[i]} percent"><span>${task}</span><div class="bar-pair" aria-hidden="true"><div class="bar" style="width:${data.base[i]}%"><span>${data.base[i]}</span></div><div class="bar full" style="width:${data.full[i]}%"><span>${data.full[i]}</span></div></div></div>`).join('');
+  $('#benchmark-bars').innerHTML = benchmarkTasks.map((task, i) => `<div class="bar-row" aria-label="${task}: without HPK ${data.base[i]} percent. Full HPK ${data.full[i]} percent"><span>${task}</span><div class="bar-pair" aria-hidden="true"><div class="bar" style="width:${data.base[i]}%"><span>${data.base[i]}</span></div><div class="bar full" style="width:${data.full[i]}%"><span>${data.full[i]}</span></div></div></div>`).join('');
 }
 $$('[data-model]').forEach(button => button.addEventListener('click', () => renderBenchmark(button.dataset.model)));
 renderBenchmark('GPT-5.5');
