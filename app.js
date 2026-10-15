@@ -38,6 +38,7 @@ const benchmarks = {
 };
 function renderBenchmark(model) {
   const data = benchmarks[model];
+  $('#benchmark-bars').closest('.result-block').dataset.benchmarkModel = model;
   $$('[data-model]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.model === model)));
   $('#model-label').textContent = `${model} · SIX-TASK MEAN`;
   $('#mean-base').textContent = data.mean[0].toFixed(1);
@@ -46,7 +47,7 @@ function renderBenchmark(model) {
   $('#benchmark-bars').innerHTML = benchmarkTasks.map((task, i) => `<div class="bar-row" aria-label="${task}: without HPK ${data.base[i]} percent. Full HPK ${data.full[i]} percent"><span>${task}</span><div class="bar-pair" aria-hidden="true"><div class="bar" style="width:${data.base[i]}%"><span>${data.base[i]}</span></div><div class="bar full" style="width:${data.full[i]}%"><span>${data.full[i]}</span></div></div></div>`).join('');
 }
 $$('[data-model]').forEach(button => button.addEventListener('click', () => renderBenchmark(button.dataset.model)));
-renderBenchmark('GPT-5.5');
+renderBenchmark($('.result-block[data-benchmark-model]').dataset.benchmarkModel);
 
 function renderLearning() {
   const data = window.LEARNING_DATA;

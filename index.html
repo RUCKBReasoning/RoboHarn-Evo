@@ -9,7 +9,7 @@
   <meta property="og:description" content="Self-improving robotic manipulation through reusable Task and Action Knowledge.">
   <title>RoboHarn-Evo · Evolving Hierarchical Physical Knowledge</title>
   <link rel="icon" href="assets/favicon.svg?v=341991213f79" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=7233ce3fc8ba">
+  <link rel="stylesheet" href="styles.css?v=69985651063b">
   <link rel="stylesheet" href="story.css?v=3d8a1147e90f">
   <link rel="stylesheet" href="refresh.css?v=21c0713d937b">
   <script src="media-data.js?v=5a876c0f3e75" defer></script>
@@ -18,7 +18,7 @@
   <script src="demo-settings-data.js?v=e4b77cd581e8" defer></script>
   <script src="demo-evidence-data.js?v=5e4cc0f1ebf4" defer></script>
   <script src="demo-settings.js?v=46aba7db00c0" defer></script>
-  <script src="app.js?v=1b19f42dda9d" defer></script>
+  <script src="app.js?v=f4483f70fa19" defer></script>
   <script src="story.js?v=237a3d924c1a" defer></script>
 </head>
 <body>
@@ -100,8 +100,8 @@
 
     <section class="results-section" id="results" aria-labelledby="results-heading"><div class="wrap">
       <div class="section-heading"><div><span class="eyebrow">The Evidence</span><h2 id="results-heading">Better knowledge.<br><em>Better manipulation.</em></h2></div></div>
-      <div class="result-block"><div class="result-intro"><span class="small-label">RMBench · Six Tasks</span><h3>HPK improves different backbones.</h3><p>Compare the same harness and executor with and without Hierarchical Physical Knowledge.</p></div><div class="segmented" role="group" aria-label="Model for RMBench results"><button data-model="Qwen3.8-27B" aria-pressed="false">Qwen3.8-27B</button><button data-model="GPT-5.5" aria-pressed="true">GPT-5.5</button><button data-model="GPT-6" aria-pressed="false">GPT-6</button></div>
-        <div class="benchmark-layout"><div><div class="chart-legend"><span class="legend-base">Without HPK</span><span class="legend-full">Full HPK</span><span>SUCCESS RATE (%)</span></div><div id="benchmark-bars" aria-label="RMBench task success comparison"></div></div><aside class="benchmark-stat" aria-live="polite"><span class="small-label" id="model-label">GPT-5.5 · SIX-TASK MEAN</span><div><span id="mean-base">58.3</span><span class="mean-arrow">→</span><strong id="mean-full">82.5<span>%</span></strong></div><p><strong id="mean-gain">+24.2 pp</strong> with Full HPK</p><small>20 held-out episodes per task.<br>Same executor within each model.</small></aside></div>
+      <div class="result-block" data-benchmark-model="GPT-6"><div class="result-intro"><span class="small-label">RMBench · Six Tasks</span><h3>HPK improves different backbones.</h3><p>Compare the same harness and executor with and without Hierarchical Physical Knowledge.</p></div><div class="segmented" role="group" aria-label="Model for RMBench results"><button data-model="Qwen3.8-27B" aria-pressed="false">Qwen3.8-27B</button><button data-model="GPT-5.5" aria-pressed="false">GPT-5.5</button><button data-model="GPT-6" aria-pressed="true">GPT-6</button></div>
+        <div class="benchmark-layout"><div><div class="chart-legend"><span class="legend-base">Without HPK</span><span class="legend-full">Full HPK</span><span>SUCCESS RATE (%)</span></div><div id="benchmark-bars" aria-label="RMBench task success comparison"></div></div><aside class="benchmark-stat" aria-live="polite"><span class="small-label" id="model-label">GPT-6 · SIX-TASK MEAN</span><div><span id="mean-base">72.5</span><span class="mean-arrow">→</span><strong id="mean-full">91.7<span>%</span></strong></div><p><strong id="mean-gain">+19.2 pp</strong> with Full HPK</p><small>20 held-out episodes per task.<br>Same executor within each model.</small></aside></div>
         
       </div>
       <div class="result-columns"><article class="learning-block"><span class="small-label">Continued Interaction</span><h3>Learning without weight updates.</h3><div class="chart-legend"><span class="legend-full">GPT-5.5</span><span class="legend-rose">GPT-6</span></div><div id="learning-chart"></div><p>Mean held-out success over three learning histories. Knowledge snapshots are frozen at evaluation. Evaluation feedback is excluded from updates.</p></article>

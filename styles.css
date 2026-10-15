@@ -81,3 +81,10 @@
   .hero-footage-note>span { font-size: 8px; letter-spacing: .5px; }
   .hero-pause { font-size: 11px; padding: 8px 10px; }
 }
+
+/* Match benchmark model accents to the continued-interaction chart. */
+.result-block[data-benchmark-model]{--benchmark-color:var(--green)}
+.result-block[data-benchmark-model="GPT-6"]{--benchmark-color:var(--rose)}
+.result-block[data-benchmark-model] :is(.bar.full,.segmented button[aria-pressed="true"]),
+.result-block[data-benchmark-model] .legend-full::before{background:var(--benchmark-color)}
+.result-block[data-benchmark-model] :is(.bar.full>span,.benchmark-stat #mean-full,.benchmark-stat p strong){color:var(--benchmark-color)}
