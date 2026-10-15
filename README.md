@@ -30,13 +30,11 @@
 
 </details>
 
-<p align="center">
-  <a href="https://ruckbreasoning.github.io/RoboHarn-Evo/#demos">
-    <img src="https://ruckbreasoning.github.io/RoboHarn-Evo/assets/images/task-3.jpg" alt="Watch RoboHarn-Evo on a real robot: uncover blocks, count them, and press the matching buttons" width="100%">
-  </a>
-  <br>
-  <a href="https://ruckbreasoning.github.io/RoboHarn-Evo/#demos"><strong>Watch the real-robot demonstrations →</strong></a>
-</p>
+## 🎬 Work Overview
+
+https://github.com/user-attachments/assets/ccdc186f-b7c1-4d48-b1b9-cde73b8e4a48
+
+[Watch on the project page](https://ruckbreasoning.github.io/RoboHarn-Evo/#story)
 
 ## 🔥 News
 
