@@ -12,29 +12,24 @@
 
 </div>
 
-<details>
-<summary>Full affiliations & contributions</summary>
+### Authors and affiliations
 
 **Shifeng Bao**<sup>1,3*</sup>, **Fanding Huang**<sup>2*</sup>,
 **Yihan Lin**<sup>1,3</sup>, **Youhe Feng**<sup>1,3</sup>, **Guanlin Li**<sup>1,3</sup>,
 **Chen Zhao**<sup>1,3</sup>, **Yang Li**<sup>1,3</sup>, **Jiawei He**<sup>5</sup>,
 **Cheng Chi**<sup>1,4‡</sup>, **Jing Zhang**<sup>1,4†</sup>
 
-<sup>1</sup> School of Information, Renmin University of China<br>
-<sup>2</sup> Tsinghua University<br>
-<sup>3</sup> Key Laboratory of Data Engineering and Knowledge Engineering, Beijing, China<br>
-<sup>4</sup> Engineering Research Center of Database and Business Intelligence, Beijing, China<br>
-<sup>5</sup> XYZ Embodied AI, Beijing, China
+¹ School of Information, Renmin University of China ·
+² Tsinghua University ·
+³ Key Laboratory of Data Engineering and Knowledge Engineering, Beijing, China ·
+⁴ Engineering Research Center of Database and Business Intelligence, Beijing, China ·
+⁵ XYZ Embodied AI, Beijing, China
 
 \* Equal contribution. † Corresponding author. ‡ Project leader.
 
-</details>
-
-## 🎬 Work Overview
-
-[![Watch RoboHarn-Evo work overview](https://ruckbreasoning.github.io/RoboHarn-Evo/assets/images/work-overview-poster.png?v=fa3df137311e)](https://ruckbreasoning.github.io/RoboHarn-Evo/#story)
-
-[▶ Watch overview](https://ruckbreasoning.github.io/RoboHarn-Evo/#story) · [Open MP4](https://ruckbreasoning.github.io/RoboHarn-Evo/assets/videos/RoboHarn-Evo_work_overview.mp4?v=fa3df137311e)
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/ccdc186f-b7c1-4d48-b1b9-cde73b8e4a48" controls width="100%"></video>
+</div>
 
 ## 🔥 News
 
