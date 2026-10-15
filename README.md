@@ -32,9 +32,9 @@
 
 ## 🎬 Work Overview
 
-https://github.com/user-attachments/assets/ccdc186f-b7c1-4d48-b1b9-cde73b8e4a48
+[![Watch RoboHarn-Evo work overview](https://ruckbreasoning.github.io/RoboHarn-Evo/assets/images/work-overview-poster.png?v=fa3df137311e)](https://ruckbreasoning.github.io/RoboHarn-Evo/#story)
 
-[Watch on the project page](https://ruckbreasoning.github.io/RoboHarn-Evo/#story)
+[▶ Watch overview](https://ruckbreasoning.github.io/RoboHarn-Evo/#story) · [Open MP4](https://ruckbreasoning.github.io/RoboHarn-Evo/assets/videos/RoboHarn-Evo_work_overview.mp4?v=fa3df137311e)
 
 ## 🔥 News
 
