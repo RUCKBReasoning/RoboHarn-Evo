@@ -294,3 +294,22 @@
 @media(max-width:900px){.flow-task{font-size:16px}}
 @media(max-width:600px){.demo-task-tabs button{font-size:15px;padding:12px 7px}.flow-task{font-size:14px;padding:10px 5px}.rsi-flow{grid-template-columns:minmax(0,1fr) 20px minmax(0,1fr) 20px minmax(0,1fr)}.memory-link svg{width:19px}.task-instruction{grid-template-columns:1fr;gap:8px;padding:16px}.task-instruction p{font-size:19px}}
 @media(max-width:520px){.transfer-table{font-size:15px}.transfer-table caption{font-size:23px}.transfer-table thead th{font-size:13px}.transfer-table th,.transfer-table td{padding:10px 6px}}
+
+/* Full-width chapter backgrounds after the overview-first reorder. */
+:root{
+  --section-ivory:#f4efe6;
+  --section-sage:#e6ede8;
+}
+.section-band{display:flow-root}
+.section-band--idea,.section-band--resources{
+  background:var(--section-ivory);
+  --line:#dedbd2;
+}
+.section-band--method{
+  background:var(--section-sage);
+  --line:#ccd7ce;
+}
+.results-section{background:var(--paper)}
+.result-block{background:#fff}
+#learning-chart circle{stroke:var(--paper)}
+.section-band--resources .citation-box{background:var(--paper)}

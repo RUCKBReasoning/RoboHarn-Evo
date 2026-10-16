@@ -11,7 +11,7 @@
   <link rel="icon" href="assets/favicon.svg?v=341991213f79" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=69985651063b">
   <link rel="stylesheet" href="story.css?v=3d8a1147e90f">
-  <link rel="stylesheet" href="refresh.css?v=21c0713d937b">
+  <link rel="stylesheet" href="refresh.css?v=4a805e894f72">
   <script src="media-data.js?v=5a876c0f3e75" defer></script>
   <script src="results-data.js?v=28bd8cda13a9" defer></script>
   <script src="hero-data.js?v=dbd927d9f971" defer></script>
@@ -76,6 +76,7 @@
       </div>
     </section>
 
+    <div class="section-band section-band--idea">
     <div class="metrics wrap" aria-label="Key paper results">
       <div><span class="metric-number">72.5<span> → </span>91.7<span>%</span></span><p>RMBench success</p><span class="metric-note">No HPK → Full HPK · GPT-6</span></div>
       <div><span class="metric-number">70.0<span> → </span>88.3<span>%</span></span><p>Improvement through interaction</p><span class="metric-note">0 to 80 learning rollouts · GPT-6</span></div>
@@ -91,12 +92,17 @@
 
 
 
+    </div>
+
+    <div class="section-band section-band--method">
     <section class="section wrap method-section" id="method" aria-labelledby="method-heading">
       <div class="section-heading"><div><span class="eyebrow">The Method</span><h2 id="method-heading">Two levels of knowledge.<br><em>Two loops of improvement.</em></h2></div></div>
       <div class="knowledge-pair"><article><span class="knowledge-icon">T</span><div><span class="small-label">Task Knowledge</span><h3>What to do. When it is done.</h3><p>Subtask selection, goals, ordering, and completion conditions.</p><blockquote>Finish the required press count before switching to the next color.</blockquote></div></article><article><span class="knowledge-icon action-icon">A</span><div><span class="small-label">Action Knowledge</span><h3>How to make it happen.</h3><p>Object-relative geometry, interaction strategies, and physical effects.</p><blockquote>Approach from above, press once, release, and verify the effect.</blockquote></div></article></div>
       <figure class="paper-figure"><button class="figure-expand" data-figure="assets/images/method.webp" data-title="RoboHarn-Evo: inner execution loop and outer knowledge evolution loop" aria-label="Expand method figure"><img src="assets/images/method.webp?v=e697a5bc6b92" loading="lazy" width="2200" height="1206" alt="Paper architecture: observations feed task planning, action grounding, execution and effect checking; recorded episodes are reflected into skill-indexed Task and Action Knowledge."><span>View full figure</span></button></figure>
       <details class="method-details"><summary>Skill-routed retrieval & evidence-driven maintenance</summary><p>Skill summaries route queries to related entries. The agent selects applicable atomic knowledge, while task goals constrain action grounding. Across episodes, observed outcomes support, oppose, or leave a claim unverified. Maintenance merges equivalent entries and revises their applicability using the physical evidence.</p><img src="assets/images/knowledge.webp?v=9ba38dda9973" loading="lazy" alt="Skill-routed retrieval and evidence-driven maintenance from the paper."></details>
     </section>
+
+    </div>
 
     <section class="results-section" id="results" aria-labelledby="results-heading"><div class="wrap">
       <div class="section-heading"><div><span class="eyebrow">The Evidence</span><h2 id="results-heading">Better knowledge.<br><em>Better manipulation.</em></h2></div></div>
@@ -148,6 +154,7 @@
     </article></div>
 </div></section>
 
+    <div class="section-band section-band--resources">
     <section class="section wrap citation-section" id="citation"><div><span class="eyebrow">Resources</span><h2>Build on RoboHarn-Evo.</h2><p>Read the paper, explore the implementation,<br>or cite this work.</p><div class="resource-links"><a href="https://arxiv.org/abs/2609.37583" target="_blank" rel="noopener">arXiv:2609.37583</a><a href="https://github.com/RUCKBReasoning/RoboHarn-Evo" target="_blank" rel="noopener">GitHub repository</a></div></div><div class="citation-box"><div><span>BIBTEX</span><button id="copy-citation" type="button">Copy citation</button></div><pre id="bibtex">@misc{bao2026roboharnevo,
   title = {RoboHarn-Evo: Evolving Hierarchical
     Physical Knowledge for Self-Improving
@@ -162,6 +169,7 @@
   primaryClass = {cs.RO},
   url = {https://arxiv.org/abs/2609.37583}
 }</pre><span id="copy-status" class="sr-only" role="status"></span></div></section>
+    </div>
   </main>
   <footer class="wrap"><a class="wordmark" href="#top">RoboHarn-Evo</a><p>Physical experience. Reusable knowledge.</p><a href="#top">Back to top</a></footer>
   <dialog id="figure-dialog" aria-labelledby="figure-title"><div class="dialog-toolbar"><h2 id="figure-title">Paper figure</h2><button id="close-figure" aria-label="Close figure">Close <span aria-hidden="true">×</span></button></div><img id="dialog-image" alt=""></dialog>
