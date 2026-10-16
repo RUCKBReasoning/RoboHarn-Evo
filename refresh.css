@@ -314,3 +314,27 @@
 .result-block{background:#fff}
 #learning-chart circle{stroke:var(--paper)}
 .section-band--resources .citation-box{background:var(--paper)}
+
+/* Quiet scroll cue and pulsing line, following the Flex-pi project page. */
+.hero-explore{
+  position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+  display:grid;justify-items:center;gap:10px;min-height:44px;
+  color:#ffffffa8;text-align:center;white-space:nowrap;
+  font:400 10.5px/1.65 ui-monospace,'SFMono-Regular',Consolas,monospace;
+  letter-spacing:.22em;text-transform:uppercase;
+}
+.hero-explore::after{
+  content:"";display:block;width:1px;height:26px;background:#ffffff8c;
+  transform-origin:top;animation:hero-explore-pulse 2.6s cubic-bezier(.22,.61,.36,1) infinite;
+}
+.hero-explore:hover{color:#fff}
+.hero-explore:focus-visible{outline:2px solid #fff;outline-offset:6px;border-radius:2px}
+@keyframes hero-explore-pulse{
+  0%,100%{transform:scaleY(.25);opacity:.35}
+  50%{transform:scaleY(1);opacity:1}
+}
+@media(max-width:800px){
+  .hero.hero-cinematic{padding-bottom:160px}
+  .hero-explore{bottom:83px}
+}
+@media(prefers-reduced-motion:reduce){.hero-explore::after{animation:none}}
