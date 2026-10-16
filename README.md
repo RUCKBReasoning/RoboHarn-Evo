@@ -28,7 +28,7 @@
 \* Equal contribution. † Corresponding author. ‡ Project leader.
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/ccdc186f-b7c1-4d48-b1b9-cde73b8e4a48" controls width="100%"></video>
+  <video src="https://github.com/user-attachments/assets/148cbeb4-f026-4123-9085-43ec48df304e" controls width="100%"></video>
 </div>
 
 ## 🔥 News
