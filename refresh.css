@@ -308,6 +308,7 @@
 .section-band--method{
   background:var(--section-sage);
   --line:#ccd7ce;
+  --muted:#5b6a63;
 }
 .results-section{background:var(--paper)}
 .result-block{background:#fff}
